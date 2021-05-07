@@ -110,8 +110,6 @@ public class GameLogic {
 
         @Override
         public void handle(long now) {
-
-
             // Covert the time_elapsed from nanoseconds to milliseconds
             long time_elaped = (now - lastUpdate) / 1000000;
             if (time_elaped > GameLogic.GAME_STEP_TIMER) {
