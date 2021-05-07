@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb550c4b-a8e8-49ab-bfe3-e3fdf823d284" name="Default Changelist" comment="updating everything">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620352654196</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="made it so the jump function would work when gravity is switched off">
+      <created>1620408724229</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1620408724230</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,6 +141,7 @@
     <MESSAGE value="updating everything" />
     <MESSAGE value="Added some new mazes" />
     <MESSAGE value="Made it so you can switch between mazes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made it so you can switch between mazes" />
+    <MESSAGE value="made it so the jump function would work when gravity is switched off" />
+    <option name="LAST_COMMIT_MESSAGE" value="made it so the jump function would work when gravity is switched off" />
   </component>
 </project>

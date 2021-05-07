@@ -192,130 +192,200 @@ public class Maze {
         for (Rectangle maze_wall : Maze_walls) {
             //checking for which direction the wall is, and changing the coordinates accordingly
             //wall on left
-
-            if (ball.y < maze_wall.getY() + maze_wall.getHeight() &&
-                    //below top
-                    ball.y > maze_wall.getY() &&
-                    //left of right side
-                    ball.x < maze_wall.getX() + maze_wall.getWidth() &&
-                    //right of left side
-                    ball.x > maze_wall.getX() &&
-                    ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
-                    //below top
-                    ball.y + ball.getWidth() > maze_wall.getY()){
-                ball.x = maze_wall.getX() + maze_wall.getWidth();
-                if(ball instanceof Enemy_Blob){
-                    ball.bounce();
+                if (ball.y < maze_wall.getY() + maze_wall.getHeight() &&
+                        //below top
+                        ball.y > maze_wall.getY() &&
+                        //left of right side
+                        ball.x < maze_wall.getX() + maze_wall.getWidth() &&
+                        //right of left side
+                        ball.x > maze_wall.getX() &&
+                        ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
+                        //below top
+                        ball.y + ball.getWidth() > maze_wall.getY()) {
+                    ball.x = maze_wall.getX() + maze_wall.getWidth();
+                    System.out.println("hi");
+                    if (ball instanceof Enemy_Blob) {
+                        ball.bounce();
+                    }
                 }
 
-
-            }
-
-            //wall right
-            if (ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
-                    //below top
-                    ball.y + ball.getWidth() > maze_wall.getY() &&
-                    //left of right side
-                    ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth()&&
-                    //right of left side
-                    ball.x + ball.getWidth() > maze_wall.getX() &&
-                    ball.y < maze_wall.getY() + maze_wall.getHeight() &&
-                    //below top
-                    ball.y > maze_wall.getY()
+                //wall right
+                if (ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
+                        //below top
+                        ball.y + ball.getWidth() > maze_wall.getY() &&
+                        //left of right side
+                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
+                        //right of left side
+                        ball.x + ball.getWidth() > maze_wall.getX() &&
+                        ball.y < maze_wall.getY() + maze_wall.getHeight() &&
+                        //below top
+                        ball.y > maze_wall.getY()
                     //left of right side
 
-            ){
-                ball.x = maze_wall.getX() - ball.getWidth();
-                if(ball instanceof Enemy_Blob){
-                    ball.bounce();
+                ) {
+                    ball.x = maze_wall.getX() - ball.getWidth();
+                    if (ball instanceof Enemy_Blob) {
+                        ball.bounce();
+                    }
                 }
-            }
-            //bottom
-            if (ball.x + ball.getWidth() <= maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x + ball.getWidth() >= maze_wall.getX() &&
-                    //left of right side
-                    ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight()&&
-                    //right of left side
-                    ball.y + ball.getWidth() > maze_wall.getY() &&
-                    ball.x <= maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x >= maze_wall.getX())
+
+            //Using i here so I can detect more precise lengths while still detecting larger lengths
+            for (int i = (int) ball.getWidth(); i > 0; i--) {
+                //bottom
+                if (ball.x < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x > maze_wall.getX() &&
+                        //left of right side
+                        ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
+                        //right of left side
+                        ball.y + ball.getWidth() > maze_wall.getY() &&
+                        ball.x + ball.getWidth() - i < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth() - i > maze_wall.getX())
                 //left of right side
                 {
-                if(ball.gravity){
-                    ball.on_ground = true;
-                    ball.jump = false;
-                }
-                ball.y = maze_wall.getY() - ball.getWidth();
+                    if (ball.gravity) {
+                        ball.on_ground = true;
+                        ball.jump = false;
+                    }
+                    ball.y = maze_wall.getY() - ball.getWidth();
 
-            }
-            //top
-            if (ball.x + ball.getWidth() <= maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x + ball.getWidth() >= maze_wall.getX() &&
+                }
+                //top
+                if (ball.x < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x > maze_wall.getX() &&
+                        //left of right side
+                        ball.y < maze_wall.getY() + maze_wall.getHeight() &&
+                        //right of left side
+                        ball.y > maze_wall.getY() &&
+                        ball.x + ball.getWidth() - i < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth() - i > maze_wall.getX()
                     //left of right side
-                    ball.y < maze_wall.getY() + maze_wall.getHeight()&&
-                    //right of left side
-                    ball.y > maze_wall.getY() &&
-                    ball.x <= maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x >= maze_wall.getX()
-                //left of right side
 
-            ){
-                if(!ball.gravity){
-                    ball.on_ground = true;
-                    ball.jump = false;
+                ) {
+                    if (!ball.gravity) {
+                        ball.on_ground = true;
+                        ball.jump = false;
+                    }
+
+                    ball.y = maze_wall.getY() + maze_wall.getHeight();
+
                 }
+                if (ball.y == maze_wall.getY() + maze_wall.getHeight() && !ball.gravity &&
+                        ball.x + ball.getWidth() - i < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth() - i > maze_wall.getX() &&
+                        ball.x < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x > maze_wall.getX()
+                    //left of right side
+                ) {
+                    ball.on_ground = true;
+                }
+                //If it is on the top and gravity is switched down, it is on the ceiling
+                if (ball.y == maze_wall.getY() + maze_wall.getHeight() && ball.gravity &&
+                        ball.x + ball.getWidth() - i < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth() - i > maze_wall.getX() &&
+                        ball.x < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x > maze_wall.getX()
+                    //left of right side
+                ) {
+                    ball.on_ceiling = true;
 
-                ball.y = maze_wall.getY() + maze_wall.getHeight();
-
+                }
             }
-            if(ball.y == maze_wall.getY() + maze_wall.getHeight() && !ball.gravity &&
-                    ball.x < maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x > maze_wall.getX() &&
-                    ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x + ball.getWidth() > maze_wall.getX()
+            for (int i = (int) ball.getWidth(); i > 0; i--) {
+                //bottom
+                if (ball.x + i < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + i> maze_wall.getX() &&
+                        //left of right side
+                        ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
+                        //right of left side
+                        ball.y + ball.getWidth() > maze_wall.getY() &&
+                        ball.x + ball.getWidth()  < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth()  > maze_wall.getX())
                 //left of right side
-            ){
-                ball.on_ground = true;
-            }
-            //If it is on the top and gravity is switched down, it is on the ceiling
-            if(ball.y == maze_wall.getY() + maze_wall.getHeight() && ball.gravity &&
-                    ball.x < maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x > maze_wall.getX() &&
-                    ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x + ball.getWidth() > maze_wall.getX()
-                //left of right side
-            ){
-                ball.on_ceiling = true;
+                {
+                    if (ball.gravity) {
+                        ball.on_ground = true;
+                        ball.jump = false;
+                    }
+                    ball.y = maze_wall.getY() - ball.getWidth();
 
-            }
-            if(ball.y + ball.getWidth() == maze_wall.getY() && ball.gravity &&
-                    ball.x < maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x > maze_wall.getX() &&
-                    ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x + ball.getWidth() > maze_wall.getX()){
-                ball.on_ground = true;
+                }
+                //top
+                if (ball.x + i< maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + i > maze_wall.getX() &&
+                        //left of right side
+                        ball.y < maze_wall.getY() + maze_wall.getHeight() &&
+                        //right of left side
+                        ball.y > maze_wall.getY() &&
+                        ball.x + ball.getWidth()  < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth() > maze_wall.getX()
+                    //left of right side
 
+                ) {
+                    if (!ball.gravity) {
+                        ball.on_ground = true;
+                        ball.jump = false;
+                    }
+
+                    ball.y = maze_wall.getY() + maze_wall.getHeight();
+
+                }
+                if (ball.y == maze_wall.getY() + maze_wall.getHeight() && !ball.gravity &&
+                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth() > maze_wall.getX() &&
+                        ball.x + i< maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + i > maze_wall.getX()
+                    //left of right side
+                ) {
+                    ball.on_ground = true;
+                }
+                //If it is on the top and gravity is switched down, it is on the ceiling
+                if (ball.y == maze_wall.getY() + maze_wall.getHeight() && ball.gravity &&
+                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth() > maze_wall.getX() &&
+                        ball.x + i < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + i > maze_wall.getX()
+                    //left of right side
+                ) {
+                    ball.on_ceiling = true;
+
+                }
             }
-            //If it is on the bottom and gravity is switched up, it is on the ceiling
-            if(ball.y + ball.getWidth() == maze_wall.getY() && !ball.gravity &&
-                    ball.x < maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x > maze_wall.getX() &&
-                    ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
-                    //below top
-                    ball.x + ball.getWidth() > maze_wall.getX()){
-                ball.on_ceiling = true;
-            }
+                if (ball.y + ball.getWidth() == maze_wall.getY() && ball.gravity &&
+                        ball.x < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x > maze_wall.getX() &&
+                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth() > maze_wall.getX()) {
+                    ball.on_ground = true;
+
+                }
+                //If it is on the bottom and gravity is switched up, it is on the ceiling
+                if (ball.y + ball.getWidth() == maze_wall.getY() && !ball.gravity &&
+                        ball.x < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x > maze_wall.getX() &&
+                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth() > maze_wall.getX()) {
+                    ball.on_ceiling = true;
+                }
         }
     }
     //TODO MOVE THIS TO THE PLAYER TAB WHY IS IT IN THE MAZE TAB
