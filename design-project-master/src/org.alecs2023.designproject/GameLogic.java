@@ -13,6 +13,7 @@ public class GameLogic {
     private double width, height;
     private GameTimer gameTimer;
     public static final double GAME_STEP_TIMER = 12;
+    private int Maze_num;
 
 
 
@@ -27,14 +28,23 @@ public class GameLogic {
 
 
 
-    public GameLogic(double width, double height){
-
+    public GameLogic(double width, double height, int maze_num){
+        Maze_num = maze_num;
         gameTimer = new GameTimer();
         player = new Player();
         player.setWidth(10);
         player.setColor(Color.BLACK);
         maze = new Maze();
-        maze.save_Maze1(width,height);
+        if(Maze_num == 1){
+            maze.save_Maze1(width,height);
+        }
+        if(Maze_num == 2){
+            maze.save_Maze2(width,height);
+        }
+        if(Maze_num == 3){
+            maze.save_Maze3(width,height);
+        }
+
         player.x = 200;
         player.y = 400;
         blobs = new ArrayList<>();
@@ -55,7 +65,15 @@ public class GameLogic {
         for (Enemy_Blob blob : blobs) {
             blob.render(canvas);
         }
-        maze.render_Maze1(canvas);
+        if(Maze_num == 1){
+            maze.render_Maze1(canvas);
+        }
+        if(Maze_num == 2){
+            maze.render_Maze2(canvas);
+        }
+        if(Maze_num == 3){
+            maze.render_Maze3(canvas);
+        }
     }
     public void stop_player(){
         player.velX = 0;
@@ -73,7 +91,7 @@ public class GameLogic {
         if(direction == DIRECTION.UP){
             //calling this here to reset the on_ground function and to make it so you cant
             //jump in the air
-            maze.check_collisions(player);
+            maze.check_collisions(player, Maze_num);
             //Putting it behind this requirement so you can't jump more than once
             if(!player.jump && player.gravity && player.on_ground) {
                 player.jump = true;
@@ -84,8 +102,7 @@ public class GameLogic {
         if(direction == DIRECTION.DOWN){
             //calling this here to reset the on_ground function, and to make it so you cant
             //jump in the air
-            maze.check_collisions(player);
-            System.out.println(player.on_ground);
+            maze.check_collisions(player, Maze_num);
             //TODO ONGROUND FUNCTION IS NOT WORKING
             if(!player.jump && !player.gravity && player.on_ground)  {
                 player.jump = true;
@@ -194,7 +211,7 @@ public class GameLogic {
 
 
                 player.move();
-                maze.check_collisions(player);
+                maze.check_collisions(player, Maze_num);
                 onScreen(player);
 
                 maze.falling(player);
@@ -202,7 +219,7 @@ public class GameLogic {
 
                 for(Enemy_Blob blob: blobs){
                     maze.falling(blob);
-                    maze.check_collisions(blob);
+                    maze.check_collisions(blob, Maze_num);
                     onScreen(blob);
                     collideBlob(blob);
                     blob.move();

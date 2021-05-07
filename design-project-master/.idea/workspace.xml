@@ -2,40 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb550c4b-a8e8-49ab-bfe3-e3fdf823d284" name="Default Changelist" comment="updating everything">
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/design-project-master.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/Enemy_Blob.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/GameGUI$AnimTimer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/GameGUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/GameLogic$DIRECTION.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/GameLogic$GameTimer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/GameLogic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/Main$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/Main$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/Maze.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/Player.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/StartGraphic$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/StartGraphic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/module-info.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21,_4_11_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_21__4_11_PM__Default_Changelist_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Enemy_Blob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Maze.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/StartGraphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/goal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Maze.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620075430270</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added some new mazes">
+      <created>1620327215408</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1620327215408</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,6 +127,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added the walls and made it so you cant go through them" />
     <MESSAGE value="updating everything" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating everything" />
+    <MESSAGE value="Added some new mazes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some new mazes" />
   </component>
 </project>
