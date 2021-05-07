@@ -1,21 +1,15 @@
-package org.alecs2023.designproject;
+package org.matteog2023.designproject;
 
 import javafx.animation.AnimationTimer;
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
-public class GameGUI extends BorderPane {
+public class  GameGUI extends BorderPane {
     private Canvas gameArea;
     private AnimationTimer animTimer;
     private GameLogic logic;
@@ -31,11 +25,9 @@ public class GameGUI extends BorderPane {
 
         animTimer = new AnimTimer();
 
-
         logic = new GameLogic(gameArea.getWidth(), gameArea.getHeight());
 
         this.getChildren().add(gameArea);
-
     }
 
 

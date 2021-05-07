@@ -1,9 +1,7 @@
-package org.alecs2023.designproject;
+package org.matteog2023.designproject;
 
 import javafx.animation.AnimationTimer;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
@@ -128,7 +126,7 @@ public class GameLogic {
                 }
 
                 player.move();
-                maze.check_collisions(player );
+                maze.check_collisions(player);
                 maze.falling(player);
                 for(Enemy_Blob blob: blobs){
                     maze.falling(blob);

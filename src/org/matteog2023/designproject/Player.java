@@ -1,6 +1,5 @@
-package org.alecs2023.designproject;
+package org.matteog2023.designproject;
 
-import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
