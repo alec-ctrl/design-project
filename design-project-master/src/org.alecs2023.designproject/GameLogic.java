@@ -82,11 +82,11 @@ public class GameLogic {
     public void applyForce(DIRECTION direction){
         if(direction == DIRECTION.LEFT){
             player.velX = 0;
-            player.velX -= 5;
+            player.velX -= 4;
         }
         if(direction == DIRECTION.RIGHT){
             player.velX = 0;
-            player.velX += 5;
+            player.velX += 4;
         }
         if(direction == DIRECTION.UP){
             //calling this here to reset the on_ground function and to make it so you cant
@@ -103,7 +103,6 @@ public class GameLogic {
             //calling this here to reset the on_ground function, and to make it so you cant
             //jump in the air
             maze.check_collisions(player, Maze_num);
-            //TODO ONGROUND FUNCTION IS NOT WORKING
             if(!player.jump && !player.gravity && player.on_ground)  {
                 player.jump = true;
                 player.base_height = player.y;
@@ -159,6 +158,7 @@ public class GameLogic {
                 //so 'falling' method in Maze doesn't run after this
                 player.on_ground = true;
                 player.jump = false;
+
             }
         }
         if (player.y + player.getWidth() >= height){
@@ -170,8 +170,10 @@ public class GameLogic {
                 player.on_ground = true;
                 player.jump = false;
 
+
             }
         }
+
 
     }
 

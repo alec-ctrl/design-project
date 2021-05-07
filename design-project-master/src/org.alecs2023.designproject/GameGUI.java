@@ -33,7 +33,7 @@ public class GameGUI extends BorderPane {
 
         //giving it the width and height of the canvas
         //maze_num is what number Maze you want
-        logic = new GameLogic(500,500,3);
+        logic = new GameLogic(500,500,2);
 
 
         this.getChildren().add(gameArea);

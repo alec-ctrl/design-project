@@ -16,6 +16,8 @@ public class Player {
     public double velX, velY;
     public boolean gravity = true;
     public boolean on_ground;
+    //So I can tell if the ball is on the ceiling and set jump to false
+    public boolean on_ceiling;
 
 
 
@@ -104,27 +106,27 @@ public class Player {
         int height = (int) (base_height - player.y );
 
         //Increasing the denominator here increases the amount of time in the air (more x's)
-        int x = (int) Math.sqrt((height*8-14)/.4) ;
-        int downx = (int) Math.sqrt((Math.abs(height)*8-14)/.4) ;
+        int x = (int) Math.sqrt((height*8-14)/.4) + 1 ;
+        int downx = (int) Math.sqrt((Math.abs(height)*8-14)/.4) + 1;
 
-        if (x > 35){
+        if (x > 35 || !gravity){
                 up = false;
                 x = 1;
             }
-        if (downx > 35) {
+        if (downx > 35 || gravity) {
             down = false;
+            downx = 1;
         }
         double acceleration_formula = (.05 * ((x - 35) * (x - 35)) + 14) / 8;
         double acceleration_formula_down = (.05 * ((downx - 35) * (downx - 35)) + 14) / 8;
         if(up) {
                 player.y -= acceleration_formula;
+
             } else if (gravity){
                 player.y += acceleration_formula;
             }
         if(down) {
             player.y += acceleration_formula_down;
-            System.out.println(height);
-            System.out.println(x);
         } else if (!gravity){
             player.y -= acceleration_formula_down;
         }
