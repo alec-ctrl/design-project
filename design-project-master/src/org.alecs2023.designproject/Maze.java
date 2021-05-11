@@ -23,10 +23,14 @@ public class Maze {
         gc.fillRect(width / 2 + 20, height - 50, 20, 30);
         gc.fillRect(0, height - 30, width / 2 - 20, 30);
         gc.fillRect(width / 3, height / 2 + 50, width / 2, 30);
+        gc.fillRect(width/3 + width/2 - 20, height/2, 15, 60);
         gc.fillRect(0, height / 2, 30, height / 2);
         gc.fillRect(width - 30, height / 2 - 50, 30, height / 2 + 50);
         gc.fillRect(width - 60, 3 * height / 4, 30, 10);
         gc.fillRect(width / 2 - 30, height / 4, 30, 200);
+        gc.fillRect(width / 2 - 30, height / 4, 30, 200);
+        gc.fillRect(2*width/3, 400, 30,10);
+        gc.fillRect(2*width/3 + 70, 350, 30,10);
 
         gc.fillRect(width / 2, height / 4 + 100, 30, 10);
         gc.fillRect(0, height / 4, 250, 30);
@@ -42,21 +46,20 @@ public class Maze {
         //Drawing all the walls here
         gc.fillRect(width / 2 + 20, height - 30, width / 2 - 20, 30);
         gc.fillRect(0, height - 30, width / 2 - 20, 30);
-        gc.fillRect(width / 2 + 20,height - 40, 10,10);
-        gc.fillRect(width / 2 + 20,height - 105, 10,10);
+        gc.fillRect(width / 2 + 20,height - 45, 10,20);
+        gc.fillRect(width / 2 + 20,height - 105, 10,20);
         gc.fillRect(width / 2 + 130,height - 80, 20,10);
-        gc.fillRect(width / 2 - 30,height - 40, 10,10);
+        gc.fillRect(width / 2 - 30,height - 45, 10,20);
         gc.fillRect(50,377, width - 90,20);
-        gc.fillRect(width - 20, 250, 20, 250);
-        gc.fillRect(width - 45, height-40, 11, 11);
+        gc.fillRect(width - 20, 0, 20, 500);
+        gc.fillRect(width - 45, height-45, 11, 20);
         gc.fillRect(width/2 + 25, height/2, width/2 - 25, 20);
         gc.fillRect(width/2 - 10, 0, 20, 379);
-        gc.fillRect(width/2 + 60, height/2 -20 , 8, 20);
+        gc.fillRect(width/2 + 60, height/2 - 65 , 10, 75);
         gc.fillRect(width/2 + 40, height/2 -20 , 20, 8);
         gc.fillRect(width/2 , height/2 - 100, width/2 - 100, 20);
-        gc.fillRect(width - 20, 0, 20, 250);
-        gc.fillRect(width/2 +140,height/2 - 110, 10,10);
-        gc.fillRect(width/2 + 50,height/2 - 110, 10,10);
+        gc.fillRect(width/2 +140,height/2 - 115, 10,20);
+        gc.fillRect(width/2 +50,height/2 - 115, 10,20);
         gc.fillRect(width/2 + 70,height/2 - 140, 30,10);
         gc.fillRect(width/2 + 160,height/2 - 100, 30,10);
         gc.fillRect(width/2 + 200,height/2 - 50, 30,10);
@@ -114,6 +117,9 @@ public class Maze {
         Maze1_walls.add(new Rectangle(0, height - 30, width / 2 - 20, 30));
         Maze1_walls.add(new Rectangle(width / 2 + 20, height - 50, 20, 30));
         Maze1_walls.add(new Rectangle(width / 2 + 20, height - 30, width / 2 - 20, 30));
+        Maze1_walls.add(new Rectangle(width/3 + width/2 - 20, height/2, 15, 60));
+        Maze1_walls.add(new Rectangle(2*width/3, 400, 25,10));
+        Maze1_walls.add(new Rectangle(2*width/3 + 70, 350, 30,10));
     }
     public void save_Maze2(double Width, double Height){
         width = Width;
@@ -121,21 +127,21 @@ public class Maze {
         Maze2_walls = new ArrayList<>();
         Maze2_walls.add(new Rectangle(width / 2 + 20, height - 30, width / 2 - 20, 30));
         Maze2_walls.add(new Rectangle(0, height - 30, width / 2 - 20, 30));
-        Maze2_walls.add(new Rectangle(width / 2 + 20,height - 40, 10,10));
-        Maze2_walls.add(new Rectangle(width / 2 + 20,height - 105, 10,10));
+        Maze2_walls.add(new Rectangle(width / 2 + 20,height -45, 10,20));
+        Maze2_walls.add(new Rectangle(width / 2 + 20,height - 105, 10,20));
         Maze2_walls.add(new Rectangle(width / 2 + 130,height - 80, 20,10));
-        Maze2_walls.add(new Rectangle(width / 2 - 30,height - 40, 10,10));
+        Maze2_walls.add(new Rectangle(width / 2 - 30,height - 45, 10,20));
         Maze2_walls.add(new Rectangle(50,377, width - 90,20));
-        Maze2_walls.add(new Rectangle(width - 20, 250, 20, 250));
-        Maze2_walls.add(new Rectangle(width - 45, height-40, 11, 11));
+        Maze2_walls.add(new Rectangle(width - 20, 0, 20, 500));
+        Maze2_walls.add(new Rectangle(width - 45, height-45, 11, 20));
         Maze2_walls.add(new Rectangle(width/2 + 25, height/2, width/2 - 25, 20));
         Maze2_walls.add(new Rectangle(width/2 - 10, 0, 20, 379));
-        Maze2_walls.add(new Rectangle(width/2 + 60, height/2 -20 , 8, 20));
+        Maze2_walls.add(new Rectangle(width/2 + 60, height/2 - 65 , 10, 75));
         Maze2_walls.add(new Rectangle(width/2 + 40, height/2 -20 , 20, 8));
         Maze2_walls.add(new Rectangle(width/2 , height/2 - 100, width/2 - 100, 20));
-        Maze2_walls.add(new Rectangle(width - 20, 0, 20, 250));
-        Maze2_walls.add(new Rectangle(width/2 +140,height/2 - 110, 10,10));
-        Maze2_walls.add(new Rectangle(width/2 + 50,height/2 - 110, 10,10));
+
+        Maze2_walls.add(new Rectangle(width/2 +140,height/2 - 115, 10,20));
+        Maze2_walls.add(new Rectangle(width/2 + 50,height/2 - 115, 10,20));
         Maze2_walls.add(new Rectangle(width/2 + 70,height/2 - 140, 30,10));
         Maze2_walls.add(new Rectangle(width/2 + 160,height/2 - 100, 30,10));
         Maze2_walls.add(new Rectangle(width/2 + 200,height/2 - 50, 30,10));
@@ -194,7 +200,7 @@ public class Maze {
             //wall on left
                 if (ball.y < maze_wall.getY() + maze_wall.getHeight() &&
                         //below top
-                        ball.y > maze_wall.getY() &&
+                        ball.y >= maze_wall.getY() &&
                         //left of right side
                         ball.x < maze_wall.getX() + maze_wall.getWidth() &&
                         //right of left side
@@ -203,7 +209,6 @@ public class Maze {
                         //below top
                         ball.y + ball.getWidth() > maze_wall.getY()) {
                     ball.x = maze_wall.getX() + maze_wall.getWidth();
-                    System.out.println("hi");
                     if (ball instanceof Enemy_Blob) {
                         ball.bounce();
                     }
@@ -219,7 +224,7 @@ public class Maze {
                         ball.x + ball.getWidth() > maze_wall.getX() &&
                         ball.y < maze_wall.getY() + maze_wall.getHeight() &&
                         //below top
-                        ball.y > maze_wall.getY()
+                        ball.y >= maze_wall.getY()
                     //left of right side
 
                 ) {
@@ -302,14 +307,14 @@ public class Maze {
                 //bottom
                 if (ball.x + i < maze_wall.getX() + maze_wall.getWidth() &&
                         //below top
-                        ball.x + i> maze_wall.getX() &&
+                        ball.x + i > maze_wall.getX() &&
                         //left of right side
                         ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
                         //right of left side
                         ball.y + ball.getWidth() > maze_wall.getY() &&
-                        ball.x + ball.getWidth()  < maze_wall.getX() + maze_wall.getWidth() &&
+                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
                         //below top
-                        ball.x + ball.getWidth()  > maze_wall.getX())
+                        ball.x + ball.getWidth() > maze_wall.getX())
                 //left of right side
                 {
                     if (ball.gravity) {
@@ -320,14 +325,14 @@ public class Maze {
 
                 }
                 //top
-                if (ball.x + i< maze_wall.getX() + maze_wall.getWidth() &&
+                if (ball.x + i < maze_wall.getX() + maze_wall.getWidth() &&
                         //below top
                         ball.x + i > maze_wall.getX() &&
                         //left of right side
                         ball.y < maze_wall.getY() + maze_wall.getHeight() &&
                         //right of left side
                         ball.y > maze_wall.getY() &&
-                        ball.x + ball.getWidth()  < maze_wall.getX() + maze_wall.getWidth() &&
+                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
                         //below top
                         ball.x + ball.getWidth() > maze_wall.getX()
                     //left of right side
@@ -345,7 +350,7 @@ public class Maze {
                         ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
                         //below top
                         ball.x + ball.getWidth() > maze_wall.getX() &&
-                        ball.x + i< maze_wall.getX() + maze_wall.getWidth() &&
+                        ball.x + i < maze_wall.getX() + maze_wall.getWidth() &&
                         //below top
                         ball.x + i > maze_wall.getX()
                     //left of right side
@@ -365,16 +370,25 @@ public class Maze {
                     ball.on_ceiling = true;
 
                 }
-            }
+
                 if (ball.y + ball.getWidth() == maze_wall.getY() && ball.gravity &&
                         ball.x < maze_wall.getX() + maze_wall.getWidth() &&
                         //below top
                         ball.x > maze_wall.getX() &&
-                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
+                        ball.x + ball.getWidth() - i < maze_wall.getX() + maze_wall.getWidth() &&
                         //below top
-                        ball.x + ball.getWidth() > maze_wall.getX()) {
-                    ball.on_ground = true;
+                        ball.x + ball.getWidth() - i > maze_wall.getX()) {
 
+                    ball.on_ground = true;
+                }
+                if (ball.y + ball.getWidth() == maze_wall.getY() && ball.gravity &&
+                        ball.x + i < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + i> maze_wall.getX() &&
+                        ball.x + ball.getWidth()  < maze_wall.getX() + maze_wall.getWidth() &&
+                        //below top
+                        ball.x + ball.getWidth()  > maze_wall.getX()) {
+                    ball.on_ground = true;
                 }
                 //If it is on the bottom and gravity is switched up, it is on the ceiling
                 if (ball.y + ball.getWidth() == maze_wall.getY() && !ball.gravity &&
@@ -386,6 +400,7 @@ public class Maze {
                         ball.x + ball.getWidth() > maze_wall.getX()) {
                     ball.on_ceiling = true;
                 }
+            }
         }
     }
     //TODO MOVE THIS TO THE PLAYER TAB WHY IS IT IN THE MAZE TAB

@@ -9,10 +9,12 @@ import java.util.ArrayList;
 public class GameLogic {
     private Player player;
     private Maze maze;
+    //TODO DONT FORGET TO MAKE THIS AN ARRAYLIST IF YOU WANT MORE BATS
+    private ArrayList<Bat> bats;
     private ArrayList<Enemy_Blob> blobs;
     private double width, height;
     private GameTimer gameTimer;
-    public static final double GAME_STEP_TIMER = 12;
+    public static final double GAME_STEP_TIMER = 15.75;
     private int Maze_num;
 
 
@@ -35,11 +37,66 @@ public class GameLogic {
         player.setWidth(10);
         player.setColor(Color.BLACK);
         maze = new Maze();
+        blobs = new ArrayList<>();
         if(Maze_num == 1){
             maze.save_Maze1(width,height);
+            for(int i = 0; i < 5; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 300 + 20 * i;
+                blob.y = 400;
+                blobs.add(blob);
+            }
+            for(int i = 0; i < 5; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 250 + 20 * i;
+                blob.y = 250;
+                blobs.add(blob);
+            }
         }
         if(Maze_num == 2){
             maze.save_Maze2(width,height);
+
+            bats = new ArrayList<>();
+            Bat bat1= new Bat();
+            bats.add(bat1);
+            bat1.y = 230;
+            bat1.x = 340;
+            bat1.base_x = 340;
+            bat1.base_height = bat1.y;
+            Bat bat2 = new Bat();
+            bat2.y = 360;
+            bat2.x = 320;
+            bat2.base_x = 320;
+            bat2.base_height = bat2.y;
+            bats.add(bat2);
+            for(int i = 0; i < 5; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 250 + 20 * i;
+                blob.y = 400;
+                blobs.add(blob);
+            }
+            for(int i = 0; i < 5; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 310 + 20 * i;
+                blob.y = 200;
+                blobs.add(blob);
+            }
+            for(int i = 0; i < 3; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 310 + 20 * i;
+                blob.y = 100;
+                blobs.add(blob);
+            }
         }
         if(Maze_num == 3){
             maze.save_Maze3(width,height);
@@ -47,15 +104,7 @@ public class GameLogic {
 
         player.x = 200;
         player.y = 400;
-        blobs = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
-            Enemy_Blob blob = new Enemy_Blob();
-            blob.setWidth(10);
-            blob.setColor(Color.RED);
-            blob.x = 300 + 20 * i;
-            blob.y = 400;
-            blobs.add(blob);
-        }
+
     }
 
     public void render(Canvas canvas){
@@ -70,6 +119,10 @@ public class GameLogic {
         }
         if(Maze_num == 2){
             maze.render_Maze2(canvas);
+            for(Bat bat : bats){
+                bat.render(canvas);
+            }
+
         }
         if(Maze_num == 3){
             maze.render_Maze3(canvas);
@@ -127,8 +180,12 @@ public class GameLogic {
                 //right of left side
                 player.x + player.getWidth() >= blob.x
         ) {
-            blob.bounce();
-            player.bounce();
+            if(blob instanceof Bat){
+                player.bounce();
+            } else{
+                blob.bounce();
+                player.bounce();
+            }
         }
 
     }
@@ -137,6 +194,8 @@ public class GameLogic {
      * keeping the player (or any ememy) on screen
      * @param player any like enemy or the player
      */
+
+    //TODO YOU MIGHT BE ABLE TO DELETE THIS LATER IF YOU BLOCK OFF THE OUTSIDE OF YOUR MAZES
     private void onScreen(Player player){
         if (player.x <= 0){
             player.x = 0;
@@ -174,6 +233,9 @@ public class GameLogic {
             }
         }
 
+
+    }
+    private void deal_damage(){
 
     }
 
@@ -214,9 +276,15 @@ public class GameLogic {
 
                 player.move();
                 maze.check_collisions(player, Maze_num);
+
                 onScreen(player);
 
                 maze.falling(player);
+                for(Bat bat : bats){
+                    if(bat != null){
+                        bat.swoop();
+                    }
+                }
 
 
                 for(Enemy_Blob blob: blobs){
@@ -225,7 +293,9 @@ public class GameLogic {
                     onScreen(blob);
                     collideBlob(blob);
                     blob.move();
-
+                }
+                for(Bat bat : bats){
+                    collideBlob(bat);
                 }
 
                 lastUpdate = now;
