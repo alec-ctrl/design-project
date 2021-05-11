@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -36,28 +37,29 @@ public class StartGraphic extends BorderPane {
         buttonbox.setPadding(new Insets(10,10,10,10));
 
 
-//        start.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-//            @Override
-//            /**
-//             * Disabling all difficulty buttons except for medium, and un-disabling the play button
-//             */
-//            public void handle(MouseEvent mouseEvent) {
-//                GameGUI root = new GameGUI();
-//                Scene scene = new Scene(root, 500,500);
-//
-//                Main.switchscene(scene);
-//            }
-//        });
+
 
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Scene s = null;
 
-                GameGUI g = new GameGUI();
+                GameGUI g = new GameGUI(1);
                 s = new Scene(g, 500, 500);
                 ((Stage) getScene().getWindow()).setScene(s);
                 g.pause(false);
+                s.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+                    @Override
+                    public void handle(KeyEvent keyEvent) {
+                        g.handleKeyPress(keyEvent);
+                    }
+                });
+                s.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
+                    @Override
+                    public void handle(KeyEvent keyEvent) {
+                        g.handleKeyRelease(keyEvent);
+                    }
+                });
             }
         });
     }

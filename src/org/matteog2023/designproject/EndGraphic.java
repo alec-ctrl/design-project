@@ -1,4 +1,4 @@
-package org.alecs2023.designproject;
+package org.matteog2023.designproject;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

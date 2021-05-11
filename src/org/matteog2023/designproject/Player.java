@@ -1,5 +1,6 @@
 package org.matteog2023.designproject;
 
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -8,12 +9,15 @@ public class Player {
     private double width;
     private Color color;
     public boolean up = true;
+    public boolean down = false;
     public boolean jump;
     public double base_height;
     public double x, y;     //Center point of the square
     public double velX, velY;
     public boolean gravity = true;
     public boolean on_ground;
+    //So I can tell if the ball is on the ceiling and set jump to false
+    public boolean on_ceiling;
 
 
 
@@ -98,28 +102,40 @@ public class Player {
 
     }
 
-    public boolean jump(int base_height, Player player){
+    public void jump(int base_height, Player player ){
         int height = (int) (base_height - player.y );
-        int x = (int) (Math.sqrt(-height + 10)+3);
-        if (height > 70){
-            up = false;
+
+        //Increasing the denominator here increases the amount of time in the air (more x's)
+        int x = (int) Math.sqrt((height*8-14)/.4) + 1 ;
+        int downx = (int) Math.sqrt((Math.abs(height)*8-14)/.4) + 1;
+
+        if (x > 35 || !gravity){
+                up = false;
+                x = 1;
+            }
+        if (downx > 35 || gravity) {
+            down = false;
+            downx = 1;
         }
-        if(up){
-            player.y -= ((((x+2)-3)*((x+2)-3))+10)/3;
-        }else{
-            player.y += ((((x+2)-3)*((x+2)-3))+10)/3;
+        double acceleration_formula = (.05 * ((x - 35) * (x - 35)) + 14) / 8;
+        double acceleration_formula_down = (.05 * ((downx - 35) * (downx - 35)) + 14) / 8;
+        if(up) {
+                player.y -= acceleration_formula;
 
+            } else if (gravity){
+                player.y += acceleration_formula;
+            }
+        if(down) {
+            player.y += acceleration_formula_down;
+        } else if (!gravity){
+            player.y -= acceleration_formula_down;
         }
-
-
-        if(player.y >= base_height){
-            player.y = base_height+1;
-
-
-            return false;
-        }
-        return true;
-
+    }
+    /**
+     * in case you hit a wall
+     */
+    public void bounce(){
+        this.velX *= -1;
     }
 
     public void render( Canvas canvas ){
@@ -128,5 +144,6 @@ public class Player {
         gc.setFill(this.color);
         gc.fillRect(x, y, width, width );
     }
+
 }
 
