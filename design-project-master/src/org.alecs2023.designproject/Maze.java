@@ -19,33 +19,31 @@ public class Maze {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
         //Drawing all the walls here
-        gc.fillRect(width / 2 + 20, height - 30, width / 2 - 20, 30);
         gc.fillRect(width / 2 + 20, height - 50, 20, 30);
-        gc.fillRect(0, height - 30, width / 2 - 20, 30);
+        gc.fillRect(0, height - 30, width, 30);
         gc.fillRect(width / 3, height / 2 + 50, width / 2, 30);
         gc.fillRect(width/3 + width/2 - 20, height/2, 15, 60);
-        gc.fillRect(0, height / 2, 30, height / 2);
+        gc.fillRect(0, 300, 30, height / 2);
         gc.fillRect(width - 30, height / 2 - 50, 30, height / 2 + 50);
         gc.fillRect(width - 60, 3 * height / 4, 30, 10);
         gc.fillRect(width / 2 - 30, height / 4, 30, 200);
         gc.fillRect(width / 2 - 30, height / 4, 30, 200);
         gc.fillRect(2*width/3, 400, 30,10);
         gc.fillRect(2*width/3 + 70, 350, 30,10);
-
         gc.fillRect(width / 2, height / 4 + 100, 30, 10);
         gc.fillRect(0, height / 4, 250, 30);
         gc.fillRect(2 * width / 3, height / 2 - 50, width / 2, 30);
-
         gc.fillRect(width / 2 + 100, height / 4 - 30, 30, 10);
         gc.fillRect(width - 30, height / 4 - 30, 30, 10);
+        gc.fillRect( 60, height - 110, 30, 10);
+        gc.fillRect( 100, height - 150, 30, 10);
 
     }
     public void render_Maze2(Canvas canvas) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
         //Drawing all the walls here
-        gc.fillRect(width / 2 + 20, height - 30, width / 2 - 20, 30);
-        gc.fillRect(0, height - 30, width / 2 - 20, 30);
+        gc.fillRect(0, height - 30, width, 30);
         gc.fillRect(width / 2 + 20,height - 45, 10,20);
         gc.fillRect(width / 2 + 20,height - 105, 10,20);
         gc.fillRect(width / 2 + 130,height - 80, 20,10);
@@ -67,7 +65,7 @@ public class Maze {
         gc.fillRect(30, height - 200, width / 2 - 90, 10);
         gc.fillRect(125,height - 150, 30,10);
         gc.fillRect(185,height - 150, 30,10);
-        gc.fillRect(50,height - 133, 11,13);
+
         gc.fillRect(130,height /2, 20,10);
         gc.fillRect(80,height /2 - 60, 30,10);
         gc.fillRect(150,height /2 - 50, 30,10);
@@ -91,7 +89,6 @@ public class Maze {
         gc.fillRect(width/2 + 40,height/2, 30,5);
         gc.fillRect(width/2 + 10,height/2 - 120, 60,5);
         gc.fillRect(width/2 + 10,height/2 - 160, width/2 - 50,15);
-        gc.fillRect(0,0, width,5);
         gc.fillRect(width/2 - 10,0, 20,height- 50);
         gc.fillRect(width/2 - 150,height/2 + 160, 150,15);
         gc.fillRect(0,height/2 + 50, 200,15);
@@ -112,21 +109,21 @@ public class Maze {
         Maze1_walls.add(new Rectangle(width / 2 - 30, height / 4, 30, 200));
         Maze1_walls.add(new Rectangle(width - 60, 3 * height / 4, 30, 10));
         Maze1_walls.add(new Rectangle(width - 30, height / 2 - 50, 30, height / 2 + 50));
-        Maze1_walls.add(new Rectangle(0, height / 2, 30, height / 2));
+        Maze1_walls.add(new Rectangle(0, 300, 30, height / 2));
         Maze1_walls.add(new Rectangle(width / 3, height / 2 + 50, width / 2, 30));
-        Maze1_walls.add(new Rectangle(0, height - 30, width / 2 - 20, 30));
+        Maze1_walls.add(new Rectangle(0, height - 30, width, 30));
         Maze1_walls.add(new Rectangle(width / 2 + 20, height - 50, 20, 30));
-        Maze1_walls.add(new Rectangle(width / 2 + 20, height - 30, width / 2 - 20, 30));
         Maze1_walls.add(new Rectangle(width/3 + width/2 - 20, height/2, 15, 60));
         Maze1_walls.add(new Rectangle(2*width/3, 400, 25,10));
         Maze1_walls.add(new Rectangle(2*width/3 + 70, 350, 30,10));
+        Maze1_walls.add(new Rectangle(60, height - 110, 30, 10));
+        Maze1_walls.add(new Rectangle(100, height - 150, 30, 10));
     }
     public void save_Maze2(double Width, double Height){
         width = Width;
         height = Height;
         Maze2_walls = new ArrayList<>();
-        Maze2_walls.add(new Rectangle(width / 2 + 20, height - 30, width / 2 - 20, 30));
-        Maze2_walls.add(new Rectangle(0, height - 30, width / 2 - 20, 30));
+        Maze2_walls.add(new Rectangle(0, height - 30, width, 30));
         Maze2_walls.add(new Rectangle(width / 2 + 20,height -45, 10,20));
         Maze2_walls.add(new Rectangle(width / 2 + 20,height - 105, 10,20));
         Maze2_walls.add(new Rectangle(width / 2 + 130,height - 80, 20,10));
@@ -149,7 +146,6 @@ public class Maze {
         Maze2_walls.add(new Rectangle(30, height - 200, width / 2 - 90, 10));
         Maze2_walls.add(new Rectangle(125,height - 150, 30,10));
         Maze2_walls.add(new Rectangle(185,height - 150, 30,10));
-        Maze2_walls.add(new Rectangle(50,height - 133, 11,13));
         Maze2_walls.add(new Rectangle(130,height /2, 30,10));
         Maze2_walls.add(new Rectangle(80,height /2 - 60, 30,10));
         Maze2_walls.add(new Rectangle(150,height /2 - 50, 30,10));
@@ -174,7 +170,7 @@ public class Maze {
         Maze3_walls.add(new Rectangle(width/2 + 40,height/2, 30,5));
         Maze3_walls.add(new Rectangle(width/2 + 10,height/2 - 120, 60,5));
         Maze3_walls.add(new Rectangle(width/2 + 10,height/2 - 160, width/2 - 50,15));
-        Maze3_walls.add(new Rectangle(0,0, width,5));
+
         Maze3_walls.add(new Rectangle(width/2 - 10,0, 20,height- 50));
         Maze3_walls.add(new Rectangle(width/2 - 150,height/2 + 160, 150,15));
         Maze3_walls.add(new Rectangle(0,height/2 + 50, 200,15));
@@ -182,6 +178,28 @@ public class Maze {
         Maze3_walls.add(new Rectangle(100,height /2 - 40, 150,15));
 
     }
+
+    /**
+     * Drawing a wall down the middle so once you have chosen which side to go on you cannot go back to
+     * the other side
+     * @param maze_num what Maze it is
+     * @param canvas The canvas to draw the image
+     */
+    public void shut_middle(int maze_num, Canvas canvas){
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.BLACK);
+        gc.fillRect(250,300,10,200);
+        if (maze_num == 1) {
+            Maze1_walls.add(new Rectangle(250,300,10,200));
+        }
+        if(maze_num == 2){
+            Maze2_walls.add(new Rectangle(250,300,10,200));
+        }
+        if(maze_num == 3){
+            Maze3_walls.add(new Rectangle(250,300,10,200));
+        }
+    }
+
 
     public void check_collisions(Player ball, int num) {
         ArrayList<Rectangle> Maze_walls;

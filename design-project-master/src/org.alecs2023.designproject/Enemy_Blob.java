@@ -6,11 +6,10 @@ public class Enemy_Blob extends Player{
         this.velX = 1;
     }
     /**
-     *
      * @return how much damage this enemy does
      */
     public int Damage(){
-        return -1;
+        return 1;
     }
 
 

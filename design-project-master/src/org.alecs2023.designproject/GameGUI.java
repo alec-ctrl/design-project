@@ -19,11 +19,9 @@ public class GameGUI extends BorderPane {
     private Canvas gameArea;
     private AnimationTimer animTimer;
     private GameLogic logic;
-    private HBox topBox;
-    private Label lifeNumberLabel;
-    private HBox livesBox;
+    private Label life;
 
-    public GameGUI(){
+    public GameGUI(int maze_num){
         gameArea = new Canvas();
         gameArea.heightProperty().bind(this.heightProperty());
         gameArea.widthProperty().bind(this.widthProperty());
@@ -32,13 +30,11 @@ public class GameGUI extends BorderPane {
 
         //giving it the width and height of the canvas
         //maze_num is what number Maze you want
-        logic = new GameLogic(500,500,2);
+        logic = new GameLogic(500,500,maze_num);
 
         pause(false, false);
 
-
         this.getChildren().add(gameArea);
-
 
     }
 

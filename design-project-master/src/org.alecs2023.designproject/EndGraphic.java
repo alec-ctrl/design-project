@@ -6,37 +6,34 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-public class StartGraphic extends BorderPane {
+public class EndGraphic extends BorderPane{
 
 
-    StartGraphic(){
+    EndGraphic(String Risk_rating) {
         VBox buttonbox = new VBox();
 
         this.setCenter(buttonbox);
 
         //buttonbox
-        Button start = new Button("Start");
+        Button start = new Button("Restart");
         start.setMinSize(150, 40);
-        Button shop = new Button("Shop");
-        shop.setMinSize(150, 40);
-        Button howtoplay = new Button("How To Play");
-        howtoplay.setMinSize(150, 40);
+        Label risk_level = new Label("Your risk level is: " + Risk_rating + " / 5");
+        risk_level.setMinSize(150, 40);
 
         Pane spacerVertical = new Pane();
-        spacerVertical.setMinSize(1,10);
+        spacerVertical.setMinSize(1, 10);
         Pane spacerVertical2 = new Pane();
-        spacerVertical2.setMinSize(1,10);
+        spacerVertical2.setMinSize(1, 10);
 
-        buttonbox.getChildren().addAll(start, spacerVertical, shop, spacerVertical2, howtoplay);
+        buttonbox.getChildren().addAll(start, spacerVertical, spacerVertical2, risk_level);
         buttonbox.setAlignment(Pos.CENTER);
-        buttonbox.setPadding(new Insets(10,10,10,10));
-
-
+        buttonbox.setPadding(new Insets(10, 10, 10, 10));
 
 
         start.setOnAction(new EventHandler<ActionEvent>() {
@@ -66,3 +63,4 @@ public class StartGraphic extends BorderPane {
 
 
 }
+

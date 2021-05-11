@@ -1,7 +1,10 @@
 package org.alecs2023.designproject;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
@@ -16,6 +19,12 @@ public class GameLogic {
     private GameTimer gameTimer;
     public static final double GAME_STEP_TIMER = 15.75;
     private int Maze_num;
+    private boolean shut_middle;
+    private double lives = 3;
+    goal Goal1 = new goal();
+    goal Goal2 = new goal();
+    Image image = new Image("https://cdn2.iconfinder.com/data/icons/symbol-gray-set-3a/100/1-15-512.png");
+
 
 
 
@@ -31,6 +40,7 @@ public class GameLogic {
 
 
     public GameLogic(double width, double height, int maze_num){
+
         Maze_num = maze_num;
         gameTimer = new GameTimer();
         player = new Player();
@@ -39,12 +49,24 @@ public class GameLogic {
         maze = new Maze();
         blobs = new ArrayList<>();
         if(Maze_num == 1){
+            Goal1.x = 470;
+            Goal1.y = 60;
+            Goal2.x = 10;
+            Goal2.y = 270;
             maze.save_Maze1(width,height);
             for(int i = 0; i < 5; i++){
                 Enemy_Blob blob = new Enemy_Blob();
                 blob.setWidth(10);
                 blob.setColor(Color.RED);
                 blob.x = 300 + 20 * i;
+                blob.y = 400;
+                blobs.add(blob);
+            }
+            for(int i = 0; i < 5; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 30 + 20 * i;
                 blob.y = 400;
                 blobs.add(blob);
             }
@@ -73,6 +95,13 @@ public class GameLogic {
             bat2.base_x = 320;
             bat2.base_height = bat2.y;
             bats.add(bat2);
+            Bat bat3 = new Bat();
+            bat3.y = 90;
+            bat3.x = 90;
+            bat3.base_x = 100;
+            bat3.base_height = bat3.y;
+            bats.add(bat3);
+
             for(int i = 0; i < 5; i++){
                 Enemy_Blob blob = new Enemy_Blob();
                 blob.setWidth(10);
@@ -97,13 +126,58 @@ public class GameLogic {
                 blob.y = 100;
                 blobs.add(blob);
             }
+            for(int i = 0; i < 5; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 100 + 20 * i;;
+                blob.y = 100;
+                blobs.add(blob);
+            }
         }
         if(Maze_num == 3){
+            bats = new ArrayList<>();
+            Bat bat1 = new Bat();
+            bat1.y = 90;
+            bat1.x = 90;
+            bat1.base_x = 90;
+            bat1.base_height = bat1.y;
+            bats.add(bat1);
+            Bat bat2 = new Bat();
+            bat2.y = 190;
+            bat2.x = 300;
+            bat2.base_x = 300;
+            bat2.base_height = bat2.y;
+            bats.add(bat2);
+            for(int i = 0; i < 5; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 100 + 20 * i;;
+                blob.y = 100;
+                blobs.add(blob);
+            }
+            for(int i = 0; i < 5; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 300 + 20 * i;;
+                blob.y = 300;
+                blobs.add(blob);
+            }
+            for(int i = 0; i < 5; i++){
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = 300 + 20 * i;;
+                blob.y = 100;
+                blobs.add(blob);
+            }
             maze.save_Maze3(width,height);
         }
 
-        player.x = 200;
-        player.y = 400;
+        player.x = 250;
+        player.y = 450;
 
     }
 
@@ -111,6 +185,8 @@ public class GameLogic {
         width = canvas.getWidth();
         height = canvas.getHeight();
         player.render(canvas);
+        Goal1.render(canvas, image);
+        Goal2.render(canvas, image);
         for (Enemy_Blob blob : blobs) {
             blob.render(canvas);
         }
@@ -126,7 +202,17 @@ public class GameLogic {
         }
         if(Maze_num == 3){
             maze.render_Maze3(canvas);
+            for(Bat bat : bats){
+                bat.render(canvas);
+            }
         }
+        if( player.x > 270 || player.x < 230 || shut_middle){
+            maze.shut_middle(Maze_num, canvas);
+            shut_middle = true;
+        }
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.BLACK);
+        gc.fillText("Lives Left: "+ lives, 10,20);
     }
     public void stop_player(){
         player.velX = 0;
@@ -186,16 +272,27 @@ public class GameLogic {
                 blob.bounce();
                 player.bounce();
             }
+            lives -= blob.Damage();
         }
 
     }
+    private boolean collide_goal(goal Goal){
+        //Just the standard pythagorean formula to determine the length between the centers of the
+        //goal and player
+        double distance_between = Math.sqrt(Math.pow((player.x - Goal.x + player.getWidth()/2 + Goal.getWidth()/2), 2) + Math.pow((player.y - Goal.y + player.getWidth()/2 + Goal.getWidth()/2), 2));
+        //Returning true or false if the distance between the goal and player is
+        //less than the sum of the radii
+        return distance_between < player.getWidth()/2 + Goal.getWidth()/2;
+    }
+
 
     /**
      * keeping the player (or any ememy) on screen
+     * And if they are on top, sticking them there
      * @param player any like enemy or the player
+     *
      */
 
-    //TODO YOU MIGHT BE ABLE TO DELETE THIS LATER IF YOU BLOCK OFF THE OUTSIDE OF YOUR MAZES
     private void onScreen(Player player){
         if (player.x <= 0){
             player.x = 0;
@@ -228,14 +325,9 @@ public class GameLogic {
                 //so 'falling' method in Maze doesn't run after this
                 player.on_ground = true;
                 player.jump = false;
-
-
             }
         }
 
-
-    }
-    private void deal_damage(){
 
     }
 
@@ -280,11 +372,13 @@ public class GameLogic {
                 onScreen(player);
 
                 maze.falling(player);
-                for(Bat bat : bats){
-                    if(bat != null){
-                        bat.swoop();
+                if (Maze_num == 2 || Maze_num == 3){
+                    for(Bat bat : bats){
+                            bat.swoop();
+                            collideBlob(bat);
                     }
                 }
+
 
 
                 for(Enemy_Blob blob: blobs){
@@ -294,9 +388,12 @@ public class GameLogic {
                     collideBlob(blob);
                     blob.move();
                 }
-                for(Bat bat : bats){
-                    collideBlob(bat);
+                if(collide_goal(Goal1) || collide_goal(Goal2)){
+                    GameGUI gameGUI= new GameGUI(Maze_num + 1);
+                    Scene scene = new Scene(gameGUI, 500,500);
+                    Main.switchscene(scene);
                 }
+
 
                 lastUpdate = now;
             }

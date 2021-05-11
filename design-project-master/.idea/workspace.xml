@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb550c4b-a8e8-49ab-bfe3-e3fdf823d284" name="Default Changelist" comment="updating everything">
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Bat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Coins.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/EndGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/Enemy_Blob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Enemy_Blob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/GameLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/Maze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/StartGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/StartGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org.alecs2023.designproject/goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org.alecs2023.designproject/goal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620410682857</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="made the bat work and spawned in most of the enemies for maze2">
+      <created>1620691946035</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1620691946035</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +163,17 @@
     <MESSAGE value="Made it so you can switch between mazes" />
     <MESSAGE value="made it so the jump function would work when gravity is switched off" />
     <MESSAGE value="Fixed the contact area on when jumping on walls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the contact area on when jumping on walls" />
+    <MESSAGE value="made the bat work and spawned in most of the enemies for maze2" />
+    <option name="LAST_COMMIT_MESSAGE" value="made the bat work and spawned in most of the enemies for maze2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
