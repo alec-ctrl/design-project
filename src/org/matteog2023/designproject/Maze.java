@@ -183,14 +183,11 @@ public class Maze {
      * Drawing a wall down the middle so once you have chosen which side to go on you cannot go back to
      * the other side
      * @param maze_num what Maze it is
-     * @param canvas The canvas to draw the image
      */
-    public void shut_middle(int maze_num, Canvas canvas){
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.BLACK);
-        gc.fillRect(250,300,10,200);
+    public void save_shut_middle(int maze_num){
         if (maze_num == 1) {
             Maze1_walls.add(new Rectangle(250,300,10,200));
+
         }
         if(maze_num == 2){
             Maze2_walls.add(new Rectangle(250,300,10,200));
@@ -200,6 +197,15 @@ public class Maze {
         }
     }
 
+    /**
+     * rendering the 'gate'
+     * @param canvas where to draw everything
+     */
+    public void render_middle(Canvas canvas){
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.BLACK);
+        gc.fillRect(250,300,10,200);
+    }
 
     public void check_collisions(Player ball, int num) {
         ArrayList<Rectangle> Maze_walls;
@@ -216,41 +222,41 @@ public class Maze {
         for (Rectangle maze_wall : Maze_walls) {
             //checking for which direction the wall is, and changing the coordinates accordingly
             //wall on left
-                if (ball.y < maze_wall.getY() + maze_wall.getHeight() &&
-                        //below top
-                        ball.y >= maze_wall.getY() &&
-                        //left of right side
-                        ball.x < maze_wall.getX() + maze_wall.getWidth() &&
-                        //right of left side
-                        ball.x > maze_wall.getX() &&
-                        ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
-                        //below top
-                        ball.y + ball.getWidth() > maze_wall.getY()) {
-                    ball.x = maze_wall.getX() + maze_wall.getWidth();
-                    if (ball instanceof Enemy_Blob) {
-                        ball.bounce();
-                    }
-                }
-
-                //wall right
-                if (ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
-                        //below top
-                        ball.y + ball.getWidth() > maze_wall.getY() &&
-                        //left of right side
-                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
-                        //right of left side
-                        ball.x + ball.getWidth() > maze_wall.getX() &&
-                        ball.y < maze_wall.getY() + maze_wall.getHeight() &&
-                        //below top
-                        ball.y >= maze_wall.getY()
+            if (ball.y < maze_wall.getY() + maze_wall.getHeight() &&
+                    //below top
+                    ball.y >= maze_wall.getY() &&
                     //left of right side
-
-                ) {
-                    ball.x = maze_wall.getX() - ball.getWidth();
-                    if (ball instanceof Enemy_Blob) {
-                        ball.bounce();
-                    }
+                    ball.x < maze_wall.getX() + maze_wall.getWidth() &&
+                    //right of left side
+                    ball.x > maze_wall.getX() &&
+                    ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
+                    //below top
+                    ball.y + ball.getWidth() > maze_wall.getY()) {
+                ball.x = maze_wall.getX() + maze_wall.getWidth();
+                if (ball instanceof Enemy_Blob) {
+                    ball.bounce();
                 }
+            }
+
+            //wall right
+            if (ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
+                    //below top
+                    ball.y + ball.getWidth() > maze_wall.getY() &&
+                    //left of right side
+                    ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
+                    //right of left side
+                    ball.x + ball.getWidth() > maze_wall.getX() &&
+                    ball.y < maze_wall.getY() + maze_wall.getHeight() &&
+                    //below top
+                    ball.y >= maze_wall.getY()
+                //left of right side
+
+            ) {
+                ball.x = maze_wall.getX() - ball.getWidth();
+                if (ball instanceof Enemy_Blob) {
+                    ball.bounce();
+                }
+            }
 
             //Using i here so I can detect more precise lengths while still detecting larger lengths
             for (int i = (int) ball.getWidth(); i > 0; i--) {
