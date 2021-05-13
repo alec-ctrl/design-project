@@ -37,7 +37,17 @@ public class StartGraphic extends BorderPane {
         buttonbox.setPadding(new Insets(10,10,10,10));
 
 
+        howtoplay.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Scene s = null;
 
+                Directions d = new Directions();
+                s = new Scene(d, 500, 500);
+                ((Stage) getScene().getWindow()).setScene(s);
+
+            }
+        });
 
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override

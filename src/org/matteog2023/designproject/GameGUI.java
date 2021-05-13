@@ -3,31 +3,40 @@ package org.matteog2023.designproject;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 public class GameGUI extends BorderPane {
     private Canvas gameArea;
     private AnimationTimer animTimer;
     private GameLogic logic;
-    private Label life;
 
     public GameGUI(int maze_num, int lives, int coin_num){
         gameArea = new Canvas();
         gameArea.heightProperty().bind(this.heightProperty());
         gameArea.widthProperty().bind(this.widthProperty());
-
+        Button shop = new Button("Shop");
+        shop.setMinSize(100, 20);
+        shop.setLayoutX(390);
+        shop.setLayoutY(470);
+        //to prevent the space bar from firing this button instead of changing the gravity
+        shop.setFocusTraversable(false);
+        Pane pane = new Pane();
+        pane.getChildren().add(shop);
         animTimer = new AnimTimer();
+
 
         //giving it the width and height of the canvas
         //maze_num is what number Maze you want
         logic = new GameLogic(500,500,maze_num, lives, coin_num);
-
         pause(false, false);
 
-        this.getChildren().add(gameArea);
+
+        this.getChildren().addAll(gameArea, pane);
 
     }
 

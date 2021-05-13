@@ -340,7 +340,7 @@ public class GameLogic {
         //hitting the blob, it will just remove it from the ArrayLis
         if (player.y <= blob.y &&
                 //below top
-                player.y + player.getWidth() >= blob.y - blob.getWidth() &&
+                player.y + player.getWidth() >= blob.y + blob.getWidth() &&
                 //left of right side
                 player.x <= blob.x + blob.getWidth() &&
                 //right of left side
@@ -596,6 +596,13 @@ public class GameLogic {
                             gameGUI.handleKeyRelease(keyEvent);
                         }
                     });
+                }
+                if(lives <= 0){
+                    //TODO MAKE A RISK_RATING HERE
+                    EndGraphic endGraphic= new EndGraphic("3");
+                    Scene scene = new Scene(endGraphic, 500,500);
+                    pause(true);
+                    Main.switchscene(scene);
                 }
 
 
