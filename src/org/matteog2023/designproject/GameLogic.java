@@ -251,7 +251,8 @@ public class GameLogic {
         player.render(canvas);
         Goal2.render(canvas, image);
         Goal1.render(canvas, image);
-        for(Coins coin: coins){
+        for(int i = 0; i < coins.size(); i++){
+            Coins coin = coins.get(i);
             if(!coin.intersects_player(player) ){
                 coin.render(canvas);
             }
@@ -333,10 +334,11 @@ public class GameLogic {
             }
         }
     }
-    private void collideBlob(Enemy_Blob blob){
+    private void collideBlob(Enemy_Blob blob) {
         //above bottom
-
-        if(player.y <= blob.y  &&
+        //For this you essentially only need one thing of code because as soon as it detects you
+        //hitting the blob, it will just remove it from the ArrayLis
+        if (player.y <= blob.y &&
                 //below top
                 player.y + player.getWidth() >= blob.y - blob.getWidth() &&
                 //left of right side
@@ -344,20 +346,128 @@ public class GameLogic {
                 //right of left side
                 player.x + player.getWidth() >= blob.x
         ) {
-            if(blob instanceof Bat){
-                player.bounce();
-            } else{
-                blob.bounce();
-                player.bounce();
-            }
+            blobs.remove(blob);
             lives -= blob.Damage();
         }
-
     }
     private boolean collide_goal(goal Goal){
 
         return player.intersects(Goal);
 
+    }
+    private void collide_bat(){
+        for (Bat bat : bats) {
+            //Essentially the same code from collideMaze except replacing the maze with blob and ball with player
+            if (player.y < bat.y + bat.getWidth() &&
+                    //below top
+                    player.y >= bat.y &&
+                    //left of right side
+                    player.x < bat.x + bat.getWidth() &&
+                    //right of left side
+                    player.x > bat.x &&
+                    player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                    //below top
+                    player.y + player.getWidth() > bat.y) {
+                player.x = bat.x + 30;
+                lives--;
+            }
+
+            //wall right
+            if (player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                    //below top
+                    player.y + player.getWidth() > bat.y &&
+                    //left of right side
+                    player.x + player.getWidth() < bat.y + bat.getWidth() &&
+                    //right of left side
+                    player.x + player.getWidth() > bat.x &&
+                    player.y < bat.y + bat.getWidth() &&
+                    //below top
+                    player.y >= bat.y
+                //left of right side
+
+            ) {
+                player.x = bat.x + 30;
+                lives--;
+            }
+
+            //Using i here so I can detect more precise lengths while still detecting larger lengths
+            for (int i = (int) player.getWidth(); i > 0; i--) {
+                //bottom
+                if (player.x < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x > bat.x &&
+                        //left of right side
+                        player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                        //right of left side
+                        player.y + player.getWidth() > bat.y &&
+                        player.x + player.getWidth() - i < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + player.getWidth() - i > bat.x)
+                //left of right side
+                {
+                    player.x = bat.x + 30;
+                    lives--;
+
+                }
+                //top
+                if (player.x < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x > bat.x &&
+                        //left of right side
+                        player.y < bat.y + bat.getWidth() &&
+                        //right of left side
+                        player.y > bat.y &&
+                        player.x + player.getWidth() - i < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + player.getWidth() - i > bat.x
+                    //left of right side
+
+                ) {
+
+                    player.x = bat.x +30;
+                    lives--;
+
+                }
+            }
+            for (int i = (int) player.getWidth(); i > 0; i--) {
+                //bottom
+                if (player.x + i < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + i > bat.x &&
+                        //left of right side
+                        player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                        //right of left side
+                        player.y + player.getWidth() > bat.y &&
+                        player.x + player.getWidth() < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + player.getWidth() > bat.x)
+                //left of right side
+                {
+
+                    player.x = bat.x + 30;
+                    lives--;
+
+                }
+                //top
+                if (player.x + i < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + i > bat.x &&
+                        //left of right side
+                        player.y < bat.y + bat.getWidth() &&
+                        //right of left side
+                        player.y > bat.y &&
+                        player.x + player.getWidth() < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + player.getWidth() > bat.x
+                    //left of right side
+
+                ) {
+                    player.x = bat.x + 30;
+                    lives--;
+
+                }
+            }
+        }
     }
 
 
@@ -449,13 +559,15 @@ public class GameLogic {
 
                 maze.falling(player);
                 if (Maze_num == 2 || Maze_num == 3){
+                    collide_bat();
                     for(Bat bat : bats){
                         bat.swoop();
-                        collideBlob(bat);
+
                     }
                 }
 
-                for(Enemy_Blob blob: blobs){
+                for(int i = 0; i < blobs.size(); i++){
+                    Enemy_Blob blob = blobs.get(i);
                     maze.falling(blob);
                     maze.check_collisions(blob, Maze_num);
                     onScreen(blob);
