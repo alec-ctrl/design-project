@@ -13,6 +13,8 @@ public class Maze {
     private ArrayList<Rectangle>  Maze1_walls;
     private ArrayList<Rectangle>  Maze2_walls;
     private ArrayList<Rectangle>  Maze3_walls;
+    private ArrayList<Rectangle>  Maze4_walls;
+    private ArrayList<Rectangle>  Maze5_walls;
 
 
     public void render_Maze1(Canvas canvas) {
@@ -95,6 +97,55 @@ public class Maze {
         gc.fillRect(100,height /2 - 40, 150,15);
 
     }
+
+    public void render_Maze4(Canvas canvas) {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.BLACK);
+        //drawing all the walls here
+        gc.fillRect(0, height - 30, width - 80, 30);
+        gc.fillRect(width/2, 0, 20, height - 50);
+        gc.fillRect(width/2 - 150, height - 200, 325, 20);
+        gc.fillRect(width - 150, height - 300, 150, 20);
+        gc.fillRect(width - 30, height - 200, 30, 20);
+        gc.fillRect(0, 0, width, 30);
+        gc.fillRect(width/2 + 40, height/2 - 170, 30, 10);
+        gc.fillRect(width/2 + 200, height/2 - 200, 30, 10);
+        gc.fillRect(40, 30, 50, 90);
+        gc.fillRect(150, 30, 100, 90);
+
+    }
+
+    public void render_Maze5(Canvas canvas) {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.BLACK);
+        //drawing all the walls here
+        gc.fillRect(0, height - 30, width, 30);
+        gc.fillRect(width/2, 0, 20, height - 50);
+        gc.fillRect(width/2 + 100, height - 100, 10, 100);
+        gc.fillRect( width - 100, height - 100, 100, 10);
+        gc.fillRect(width/2, height - 190, 200, 10);
+        gc.fillRect(width/2 + 60, height - 280, 200, 10);
+        gc.fillRect(width/2, height - 360, 50 , 30);
+        gc.fillRect(width/2, height - 390, 80, 30);
+        gc.fillRect(width/2, height - 420, 110, 30);
+        gc.fillRect(width/2, height - 450, 140, 30);
+        gc.fillRect(width/2, height - 480, 170, 30);
+        gc.fillRect(width/2, height - 510, 250, 30);
+        gc.fillRect(width/2 + 90, height - 310, 180, 30);
+        gc.fillRect(width/2 + 120, height - 340, 180, 30);
+        gc.fillRect(width/2 + 150, height - 370, 180, 30);
+        gc.fillRect(width/2 + 180, height - 400, 180, 30);
+        gc.fillRect(width/2 - 180, height - 140, 180, 10);
+        gc.fillRect(width/2 - 140, height - 170, 10, 30);
+        gc.fillRect(width/2 - 100, height - 170, 10, 30);
+        gc.fillRect(0, height - 230, 200, 10);
+        gc.fillRect(190, height- 220, 10, 30);
+        gc.fillRect(width/2 - 70, height - 420, 40, 10);
+        gc.fillRect(width/2 - 170, height - 450, 40, 10);
+        gc.fillRect(0, height - 470, 50, 10);
+
+    }
+
     //So I only am adding to the arraylist once, instead of each time I render
     public void save_Maze1(double Width, double Height){
         width = Width;
@@ -179,6 +230,56 @@ public class Maze {
 
     }
 
+    public void save_Maze4(double Width, double Height) {
+        width = Width;
+        height = Height;
+        Maze4_walls = new ArrayList<>();
+        //saving all the walls here
+        Maze4_walls.add(new Rectangle(0, height - 30, width - 80, 30));
+        Maze4_walls.add(new Rectangle(width/2 - 150, height - 200, 325, 20));
+        Maze4_walls.add(new Rectangle(width - 150, height - 300, 150, 20));
+        Maze4_walls.add(new Rectangle(width - 30, height - 200, 30, 20));
+        Maze4_walls.add(new Rectangle(0, 0, width, 30));
+        Maze4_walls.add(new Rectangle(width/2, 0, 20, height - 50));
+        Maze4_walls.add(new Rectangle(width/2 + 40, height/2 - 170, 30, 10));
+        Maze4_walls.add(new Rectangle(width/2 + 200, height/2 - 200, 30, 10));
+        Maze4_walls.add(new Rectangle(40, 30, 50, 90));
+        Maze4_walls.add(new Rectangle(150, 30, 100, 90));
+
+    }
+
+    public void save_Maze5(double Width, double Height) {
+        width = Width;
+        height = Height;
+        Maze5_walls = new ArrayList<>();
+        //saving all the walls here
+        Maze5_walls.add(new Rectangle(0, height - 30, width, 30));
+        Maze5_walls.add(new Rectangle(width/2, 0, 20, height - 50));
+        Maze5_walls.add(new Rectangle(width/2 + 100, height - 100, 10, 100));
+        Maze5_walls.add(new Rectangle(width - 100, height - 100, 100, 10));
+        Maze5_walls.add(new Rectangle(width/2, height - 190, 200, 10));
+        Maze5_walls.add(new Rectangle(width/2 + 60, height - 280, 200, 10));
+        Maze5_walls.add(new Rectangle(width/2, height - 360, 50 , 30));
+        Maze5_walls.add(new Rectangle(width/2, height - 390, 80, 30));
+        Maze5_walls.add(new Rectangle(width/2, height - 420, 110, 30));
+        Maze5_walls.add(new Rectangle(width/2, height - 450, 140, 30));
+        Maze5_walls.add(new Rectangle(width/2, height - 480, 170, 30));
+        Maze5_walls.add(new Rectangle(width/2, height - 510, 250, 30));
+        Maze5_walls.add(new Rectangle(width/2 + 90, height - 310, 180, 30));
+        Maze5_walls.add(new Rectangle(width/2 + 120, height - 340, 180, 30));
+        Maze5_walls.add(new Rectangle(width/2 + 150, height - 370, 180, 30));
+        Maze5_walls.add(new Rectangle(width/2 + 180, height - 400, 180, 30));
+        Maze5_walls.add(new Rectangle(width/2 - 180, height - 140, 180, 10));
+        Maze5_walls.add(new Rectangle(width/2 - 140, height - 170, 10, 30));
+        Maze5_walls.add(new Rectangle(width/2 - 100, height - 170, 10, 30));
+        Maze5_walls.add(new Rectangle(0, height - 230, 200, 10));
+        Maze5_walls.add(new Rectangle(190, height- 220, 10, 30));
+        Maze5_walls.add(new Rectangle(width/2 - 70, height - 420, 40, 10));
+        Maze5_walls.add(new Rectangle(width/2 - 170, height - 450, 40, 10));
+        Maze5_walls.add(new Rectangle(0, height - 470, 50, 10));
+
+
+    }
     /**
      * Drawing a wall down the middle so once you have chosen which side to go on you cannot go back to
      * the other side
@@ -198,6 +299,12 @@ public class Maze {
         if(maze_num == 3){
             Maze3_walls.add(new Rectangle(250,300,10,200));
         }
+        if(maze_num == 4){
+            Maze4_walls.add(new Rectangle(250,300,10,200));
+        }
+        if(maze_num == 5){
+            Maze5_walls.add(new Rectangle(250,300,10,200));
+        }
     }
 
 
@@ -213,44 +320,50 @@ public class Maze {
         if(num == 3){
             Maze_walls = Maze3_walls;
         }
+        if(num == 4){
+            Maze_walls = Maze4_walls;
+        }
+        if(num == 5){
+            Maze_walls = Maze5_walls;
+        }
         for (Rectangle maze_wall : Maze_walls) {
             //checking for which direction the wall is, and changing the coordinates accordingly
             //wall on left
-                if (ball.y < maze_wall.getY() + maze_wall.getHeight() &&
-                        //below top
-                        ball.y >= maze_wall.getY() &&
-                        //left of right side
-                        ball.x < maze_wall.getX() + maze_wall.getWidth() &&
-                        //right of left side
-                        ball.x > maze_wall.getX() &&
-                        ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
-                        //below top
-                        ball.y + ball.getWidth() > maze_wall.getY()) {
-                    ball.x = maze_wall.getX() + maze_wall.getWidth();
-                    if (ball instanceof Enemy_Blob) {
-                        ball.bounce();
-                    }
-                }
-
-                //wall right
-                if (ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
-                        //below top
-                        ball.y + ball.getWidth() > maze_wall.getY() &&
-                        //left of right side
-                        ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
-                        //right of left side
-                        ball.x + ball.getWidth() > maze_wall.getX() &&
-                        ball.y < maze_wall.getY() + maze_wall.getHeight() &&
-                        //below top
-                        ball.y >= maze_wall.getY()
+            if (ball.y < maze_wall.getY() + maze_wall.getHeight() &&
+                    //below top
+                    ball.y >= maze_wall.getY() &&
                     //left of right side
-
-                ) {
-                    ball.x = maze_wall.getX() - ball.getWidth();
-                    if (ball instanceof Enemy_Blob) {
-                        ball.bounce();
-                    }
+                    ball.x < maze_wall.getX() + maze_wall.getWidth() &&
+                    //right of left side
+                    ball.x > maze_wall.getX() &&
+                    ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
+                    //below top
+                    ball.y + ball.getWidth() > maze_wall.getY()) {
+                ball.x = maze_wall.getX() + maze_wall.getWidth();
+                if (ball instanceof Enemy_Blob) {
+                    ball.bounce();
                 }
+            }
+
+            //wall right
+            if (ball.y + ball.getWidth() < maze_wall.getY() + maze_wall.getHeight() &&
+                    //below top
+                    ball.y + ball.getWidth() > maze_wall.getY() &&
+                    //left of right side
+                    ball.x + ball.getWidth() < maze_wall.getX() + maze_wall.getWidth() &&
+                    //right of left side
+                    ball.x + ball.getWidth() > maze_wall.getX() &&
+                    ball.y < maze_wall.getY() + maze_wall.getHeight() &&
+                    //below top
+                    ball.y >= maze_wall.getY()
+                //left of right side
+
+            ) {
+                ball.x = maze_wall.getX() - ball.getWidth();
+                if (ball instanceof Enemy_Blob) {
+                    ball.bounce();
+                }
+            }
 
             //Using i here so I can detect more precise lengths while still detecting larger lengths
             for (int i = (int) ball.getWidth(); i > 0; i--) {

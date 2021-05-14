@@ -178,7 +178,12 @@ public class GameLogic {
 
         player.x = 250;
         player.y = 450;
-
+        if(maze_num == 4){
+            maze.save_Maze4(width,height);
+        }
+        if(maze_num == 5){
+            maze.save_Maze5(width,height);
+        }
     }
 
     public void render(Canvas canvas){
@@ -205,6 +210,12 @@ public class GameLogic {
             for(Bat bat : bats){
                 bat.render(canvas);
             }
+        }
+        if(Maze_num == 4){
+            maze.render_Maze4(canvas);
+        }
+        if(Maze_num == 5){
+            maze.render_Maze5(canvas);
         }
         if( player.x > 270 || player.x < 230 || shut_middle){
             maze.shut_middle(Maze_num, canvas);
