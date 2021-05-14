@@ -245,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621022270259</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Merge Alec's code">
+      <created>1621022599093</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621022599093</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -267,11 +274,15 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="attempt 2" />
-    <MESSAGE value="Merge Alec's code" />
     <MESSAGE value="maze 4 and 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="maze 4 and 5" />
+    <MESSAGE value="Merge Alec's code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge Alec's code" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="447" y="242" key="#Notifications" timestamp="1621022687531">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="447" y="242" key="#Notifications/0.23.1440.822@0.23.1440.822" timestamp="1621022687531" />
     <state width="1358" height="197" key="GridCell.Tab.0.bottom" timestamp="1621022321379">
       <screen x="0" y="23" width="1440" height="821" />
     </state>
@@ -305,10 +316,10 @@
     </state>
     <state x="317" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1620766051850" />
     <state x="317" y="152" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1621022446248" />
-    <state x="518" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620878686318">
+    <state x="518" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621022527781">
       <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state x="518" y="332" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1620762362195" />
-    <state x="518" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.821@0.23.1440.821" timestamp="1620878686318" />
+    <state x="518" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.821@0.23.1440.821" timestamp="1621022527781" />
   </component>
 </project>
