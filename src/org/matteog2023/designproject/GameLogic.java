@@ -12,21 +12,32 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 public class GameLogic {
+    //the player
     private Player player;
+    //The maze
     private Maze maze;
-    //TODO DONT FORGET TO MAKE THIS AN ARRAYLIST IF YOU WANT MORE BATS
+    //The Bats bats
     private ArrayList<Bat> bats;
+    //The Enemy_Blob arraylist
     private ArrayList<Enemy_Blob> blobs;
+    //the Coin arraylist
     private ArrayList<Coins> coins;
+    //The width and height of the canvas
     private double width, height;
     private GameTimer gameTimer;
     public static final double GAME_STEP_TIMER = 15.75;
+    //What level maze you are on
     private int Maze_num;
+    //'True' if the middle is blocked off so you cant go over to the other side
     private boolean shut_middle;
+    //how many lives the player is
     private int lives;
+    //the number of coins the player has
     private int coin_num;
+    //The two goals
     goal Goal1 = new goal();
     goal Goal2 = new goal();
+    //The goal image
     Image image = new Image("https://cdn2.iconfinder.com/data/icons/symbol-gray-set-3a/100/1-15-512.png");
 
 

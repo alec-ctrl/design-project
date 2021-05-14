@@ -93,6 +93,7 @@ public class Maze {
         gc.fillRect(width/2 - 150,height/2 + 160, 150,15);
         gc.fillRect(0,height/2 + 50, 200,15);
         gc.fillRect(100,height /2 - 40, 150,15);
+        gc.fillRect(width/2 + 85,height - 200, 5,20);;
 
     }
     //So I only am adding to the arraylist once, instead of each time I render
@@ -164,8 +165,8 @@ public class Maze {
         Maze3_walls.add(new Rectangle(0, 0, 20, height));
         Maze3_walls.add(new Rectangle(width/2 + 70,height - 90, 30,5));
         Maze3_walls.add(new Rectangle(width/2 + 75,height - 200, 45,5));
-        Maze3_walls.add(new Rectangle(width/2 + 85,height - 200, 5,20));
-        Maze3_walls.add(new Rectangle(width/2 + 110,height - 200, 5,20));
+        Maze3_walls.add(new Rectangle(width/2 + 80,height - 200, 11,20));
+        Maze3_walls.add(new Rectangle(width/2 + 110,height - 200, 11,20));
         Maze3_walls.add(new Rectangle(width/2 + 40, height/2 - 50, width/2 - 40, 15));
         Maze3_walls.add(new Rectangle(width/2 + 40,height/2, 30,5));
         Maze3_walls.add(new Rectangle(width/2 + 10,height/2 - 120, 60,5));
