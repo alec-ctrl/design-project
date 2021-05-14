@@ -46,7 +46,7 @@ public class Directions extends BorderPane {
             public void handle(ActionEvent actionEvent) {
                 Scene s = null;
 
-                Directions d = new Directions();
+                StartGraphic d = new StartGraphic();
                 s = new Scene(d, 500, 500);
                 ((Stage) getScene().getWindow()).setScene(s);
 
