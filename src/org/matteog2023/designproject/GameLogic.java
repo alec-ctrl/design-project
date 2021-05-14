@@ -1,28 +1,43 @@
 package org.matteog2023.designproject;
 
 import javafx.animation.AnimationTimer;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
 public class GameLogic {
+    //the player
     private Player player;
+    //The maze
     private Maze maze;
-    //TODO DONT FORGET TO MAKE THIS AN ARRAYLIST IF YOU WANT MORE BATS
+    //The Bats bats
     private ArrayList<Bat> bats;
+    //The Enemy_Blob arraylist
     private ArrayList<Enemy_Blob> blobs;
+    //the Coin arraylist
+    private ArrayList<Coins> coins;
+    //The width and height of the canvas
     private double width, height;
     private GameTimer gameTimer;
     public static final double GAME_STEP_TIMER = 15.75;
+    //What level maze you are on
     private int Maze_num;
+    //'True' if the middle is blocked off so you cant go over to the other side
     private boolean shut_middle;
-    private double lives = 3;
+    //how many lives the player is
+    private int lives;
+    //the number of coins the player has
+    private int coin_num;
+    //The two goals
     goal Goal1 = new goal();
     goal Goal2 = new goal();
+    //The goal image
     Image image = new Image("https://cdn2.iconfinder.com/data/icons/symbol-gray-set-3a/100/1-15-512.png");
 
 
@@ -39,8 +54,9 @@ public class GameLogic {
 
 
 
-    public GameLogic(double width, double height, int maze_num){
-
+    public GameLogic(double width, double height, int maze_num, int life_left, int coin_nums){
+        lives = life_left;
+        coin_num = coin_nums;
         Maze_num = maze_num;
         gameTimer = new GameTimer();
         player = new Player();
@@ -48,13 +64,36 @@ public class GameLogic {
         player.setColor(Color.BLACK);
         maze = new Maze();
         blobs = new ArrayList<>();
+        coins = new ArrayList<>();
         if(Maze_num == 1){
             Goal1.x = 470;
             Goal1.y = 60;
             Goal2.x = 10;
             Goal2.y = 270;
             maze.save_Maze1(width,height);
+            for(int i = 0; i < 3; i++){
+                Coins coin = new Coins();
+                coin.setWidth(10);
+                coin.x = 100 + 20 * i;
+                coin.y = 375;
+                coins.add(coin);
+                Coins coin1 = new Coins();
+                coin1.setWidth(10);
+                coin1.x = 375 + 20 * i;
+                coin1.y = 70;
+                coins.add(coin1);
+            }
             for(int i = 0; i < 5; i++){
+                Coins coin = new Coins();
+                coin.setWidth(10);
+                coin.x = 300 + 20 * i;
+                coin.y = 350;
+                coins.add(coin);
+                Coins coin1 = new Coins();
+                coin1.setWidth(10);
+                coin1.x = 300 + 20 * i;
+                coin1.y = 210;
+                coins.add(coin1);
                 Enemy_Blob blob = new Enemy_Blob();
                 blob.setWidth(10);
                 blob.setColor(Color.RED);
@@ -81,7 +120,11 @@ public class GameLogic {
         }
         if(Maze_num == 2){
             maze.save_Maze2(width,height);
-
+            Goal1.x = 160;
+            Goal1.y = 20;
+            Goal2.x = 330;
+            Goal2.y = 70;
+            maze.save_Maze1(width,height);
             bats = new ArrayList<>();
             Bat bat1= new Bat();
             bats.add(bat1);
@@ -101,7 +144,30 @@ public class GameLogic {
             bat3.base_x = 100;
             bat3.base_height = bat3.y;
             bats.add(bat3);
-
+            for(int i = 0; i < 2; i++){
+                Coins coin = new Coins();
+                coin.setWidth(10);
+                coin.x = 410 + 20 * i;
+                coin.y = 130;
+                coins.add(coin);
+            }
+            for(int i = 0; i < 5; i++){
+                Coins coin = new Coins();
+                coin.setWidth(10);
+                coin.x = 240 + 20*i;
+                coin.y = 350;
+                coins.add(coin);
+                Coins coin1 = new Coins();
+                coin1.setWidth(10);
+                coin1.x = 300 + 20 * i;
+                coin1.y = 210;
+                coins.add(coin1);
+                Coins coin2 = new Coins();
+                coin2.setWidth(10);
+                coin2.x = 100 + 20*i;
+                coin2.y = 320;
+                coins.add(coin2);
+            }
             for(int i = 0; i < 5; i++){
                 Enemy_Blob blob = new Enemy_Blob();
                 blob.setWidth(10);
@@ -119,6 +185,11 @@ public class GameLogic {
                 blobs.add(blob);
             }
             for(int i = 0; i < 3; i++){
+                Coins coin = new Coins();
+                coin.setWidth(10);
+                coin.x = 70 + 20*i;
+                coin.y = 70;
+                coins.add(coin);
                 Enemy_Blob blob = new Enemy_Blob();
                 blob.setWidth(10);
                 blob.setColor(Color.RED);
@@ -136,6 +207,10 @@ public class GameLogic {
             }
         }
         if(Maze_num == 3){
+            Goal1.y = 10;
+            Goal1.x = 150;
+            Goal2.y = 60;
+            Goal2.x = 300;
             bats = new ArrayList<>();
             Bat bat1 = new Bat();
             bat1.y = 90;
@@ -190,8 +265,18 @@ public class GameLogic {
         width = canvas.getWidth();
         height = canvas.getHeight();
         player.render(canvas);
-        Goal1.render(canvas, image);
         Goal2.render(canvas, image);
+        Goal1.render(canvas, image);
+        for(int i = 0; i < coins.size(); i++){
+            Coins coin = coins.get(i);
+            if(!coin.intersects_player(player) ){
+                coin.render(canvas);
+            }
+            if(coin.intersects_player(player)){
+                coin_num++;
+                coins.remove(coin);
+            }
+        }
         for (Enemy_Blob blob : blobs) {
             blob.render(canvas);
         }
@@ -211,6 +296,7 @@ public class GameLogic {
                 bat.render(canvas);
             }
         }
+<<<<<<< HEAD
         if(Maze_num == 4){
             maze.render_Maze4(canvas);
         }
@@ -219,11 +305,20 @@ public class GameLogic {
         }
         if( player.x > 270 || player.x < 230 || shut_middle){
             maze.shut_middle(Maze_num, canvas);
+=======
+
+        if((player.x > 270 || player.x < 230) && !shut_middle){
+            maze.save_shut_middle(Maze_num);
+>>>>>>> 27b7d69023b9d925bd5d7c32c6a56475fe468ce0
             shut_middle = true;
+        }
+        if(shut_middle){
+            maze.render_middle(canvas);
         }
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
         gc.fillText("Lives Left: "+ lives, 10,20);
+        gc.fillText("Coins Left: "+ coin_num, 10,40);
     }
     public void stop_player(){
         player.velX = 0;
@@ -266,44 +361,148 @@ public class GameLogic {
             }
         }
     }
-    private void collideBlob(Enemy_Blob blob){
+    private void collideBlob(Enemy_Blob blob) {
         //above bottom
-
-        if(player.y <= blob.y  &&
+        //For this you essentially only need one thing of code because as soon as it detects you
+        //hitting the blob, it will just remove it from the ArrayLis
+        if (player.y <= blob.y &&
                 //below top
-                player.y + player.getWidth() >= blob.y - blob.getWidth() &&
+                player.y + player.getWidth() >= blob.y + blob.getWidth() &&
                 //left of right side
                 player.x <= blob.x + blob.getWidth() &&
                 //right of left side
                 player.x + player.getWidth() >= blob.x
         ) {
-            if(blob instanceof Bat){
-                player.bounce();
-            } else{
-                blob.bounce();
-                player.bounce();
-            }
+            blobs.remove(blob);
             lives -= blob.Damage();
         }
-
     }
     private boolean collide_goal(goal Goal){
-        //Just the standard pythagorean formula to determine the length between the centers of the
-        //goal and player
-        double distance_between = Math.sqrt(Math.pow((player.x - Goal.x + player.getWidth()/2 + Goal.getWidth()/2), 2) + Math.pow((player.y - Goal.y + player.getWidth()/2 + Goal.getWidth()/2), 2));
-        //Returning true or false if the distance between the goal and player is
-        //less than the sum of the radii
-        return distance_between < player.getWidth()/2 + Goal.getWidth()/2;
+
+        return player.intersects(Goal);
+
+    }
+    private void collide_bat(){
+        for (Bat bat : bats) {
+            //Essentially the same code from collideMaze except replacing the maze with blob and ball with player
+            if (player.y < bat.y + bat.getWidth() &&
+                    //below top
+                    player.y >= bat.y &&
+                    //left of right side
+                    player.x < bat.x + bat.getWidth() &&
+                    //right of left side
+                    player.x > bat.x &&
+                    player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                    //below top
+                    player.y + player.getWidth() > bat.y) {
+                player.x = bat.x + 30;
+                lives--;
+            }
+
+            //wall right
+            if (player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                    //below top
+                    player.y + player.getWidth() > bat.y &&
+                    //left of right side
+                    player.x + player.getWidth() < bat.y + bat.getWidth() &&
+                    //right of left side
+                    player.x + player.getWidth() > bat.x &&
+                    player.y < bat.y + bat.getWidth() &&
+                    //below top
+                    player.y >= bat.y
+                //left of right side
+
+            ) {
+                player.x = bat.x + 30;
+                lives--;
+            }
+
+            //Using i here so I can detect more precise lengths while still detecting larger lengths
+            for (int i = (int) player.getWidth(); i > 0; i--) {
+                //bottom
+                if (player.x < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x > bat.x &&
+                        //left of right side
+                        player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                        //right of left side
+                        player.y + player.getWidth() > bat.y &&
+                        player.x + player.getWidth() - i < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + player.getWidth() - i > bat.x)
+                //left of right side
+                {
+                    player.x = bat.x + 30;
+                    lives--;
+
+                }
+                //top
+                if (player.x < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x > bat.x &&
+                        //left of right side
+                        player.y < bat.y + bat.getWidth() &&
+                        //right of left side
+                        player.y > bat.y &&
+                        player.x + player.getWidth() - i < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + player.getWidth() - i > bat.x
+                    //left of right side
+
+                ) {
+
+                    player.x = bat.x +30;
+                    lives--;
+
+                }
+            }
+            for (int i = (int) player.getWidth(); i > 0; i--) {
+                //bottom
+                if (player.x + i < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + i > bat.x &&
+                        //left of right side
+                        player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                        //right of left side
+                        player.y + player.getWidth() > bat.y &&
+                        player.x + player.getWidth() < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + player.getWidth() > bat.x)
+                //left of right side
+                {
+
+                    player.x = bat.x + 30;
+                    lives--;
+
+                }
+                //top
+                if (player.x + i < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + i > bat.x &&
+                        //left of right side
+                        player.y < bat.y + bat.getWidth() &&
+                        //right of left side
+                        player.y > bat.y &&
+                        player.x + player.getWidth() < bat.x + bat.getWidth() &&
+                        //below top
+                        player.x + player.getWidth() > bat.x
+                    //left of right side
+
+                ) {
+                    player.x = bat.x + 30;
+                    lives--;
+
+                }
+            }
+        }
     }
 
 
     /**
-     * keeping the player (or any ememy) on screen
+     * keeping the player (or any enemy) on screen
      * And if they are on top, sticking them there
      * @param player any like enemy or the player
-     *
      */
-
     private void onScreen(Player player){
         if (player.x <= 0){
             player.x = 0;
@@ -318,21 +517,25 @@ public class GameLogic {
             }
         }
         if (player.y <= 0){
-            player.y = 0;
+
             if(!player.gravity){
                 //so you can jump
                 player.base_height = 0;
                 //so 'falling' method in Maze doesn't run after this
                 player.on_ground = true;
                 player.jump = false;
-
+            }
+            if(!(player instanceof Enemy_Blob)){
+                // If you end up on the top, transporting you to the bottom with one less life
+                player.y = 400;
+                lives--;
             }
         }
         if (player.y + player.getWidth() >= height){
             player.y = height - player.getWidth();
             if(player.gravity){
                 //so you can jump
-                player.base_height = height-player.getWidth();
+                player.base_height = height - player.getWidth();
                 //so 'falling' method in Maze doesn't run after this
                 player.on_ground = true;
                 player.jump = false;
@@ -372,7 +575,6 @@ public class GameLogic {
             long time_elaped = (now - lastUpdate) / 1000000;
             if (time_elaped > GameLogic.GAME_STEP_TIMER) {
                 if (player.jump){
-
                     player.jump((int) player.base_height, player);
                 }
 
@@ -384,24 +586,49 @@ public class GameLogic {
 
                 maze.falling(player);
                 if (Maze_num == 2 || Maze_num == 3){
+                    collide_bat();
                     for(Bat bat : bats){
-                            bat.swoop();
-                            collideBlob(bat);
+                        bat.swoop();
+
                     }
                 }
 
-
-
-                for(Enemy_Blob blob: blobs){
+                for(int i = 0; i < blobs.size(); i++){
+                    Enemy_Blob blob = blobs.get(i);
                     maze.falling(blob);
                     maze.check_collisions(blob, Maze_num);
                     onScreen(blob);
                     collideBlob(blob);
                     blob.move();
                 }
+
+
                 if(collide_goal(Goal1) || collide_goal(Goal2)){
-                    GameGUI gameGUI= new GameGUI(Maze_num + 1);
+
+                    GameGUI gameGUI= new GameGUI(Maze_num + 1, lives, coin_num);
                     Scene scene = new Scene(gameGUI, 500,500);
+                    Main.switchscene(scene);
+                    player.x = 250;
+                    player.y = 300;
+                    scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+                        @Override
+                        public void handle(KeyEvent keyEvent) {
+                            gameGUI.handleKeyPress(keyEvent);
+                        }
+                    });
+
+                    scene.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
+                        @Override
+                        public void handle(KeyEvent keyEvent) {
+                            gameGUI.handleKeyRelease(keyEvent);
+                        }
+                    });
+                }
+                if(lives <= 0){
+                    //TODO MAKE A RISK_RATING HERE
+                    EndGraphic endGraphic= new EndGraphic("3");
+                    Scene scene = new Scene(endGraphic, 500,500);
+                    pause(true);
                     Main.switchscene(scene);
                 }
 

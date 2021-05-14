@@ -95,6 +95,7 @@ public class Maze {
         gc.fillRect(width/2 - 150,height/2 + 160, 150,15);
         gc.fillRect(0,height/2 + 50, 200,15);
         gc.fillRect(100,height /2 - 40, 150,15);
+        gc.fillRect(width/2 + 85,height - 200, 5,20);;
 
     }
 
@@ -215,8 +216,8 @@ public class Maze {
         Maze3_walls.add(new Rectangle(0, 0, 20, height));
         Maze3_walls.add(new Rectangle(width/2 + 70,height - 90, 30,5));
         Maze3_walls.add(new Rectangle(width/2 + 75,height - 200, 45,5));
-        Maze3_walls.add(new Rectangle(width/2 + 85,height - 200, 5,20));
-        Maze3_walls.add(new Rectangle(width/2 + 110,height - 200, 5,20));
+        Maze3_walls.add(new Rectangle(width/2 + 80,height - 200, 11,20));
+        Maze3_walls.add(new Rectangle(width/2 + 110,height - 200, 11,20));
         Maze3_walls.add(new Rectangle(width/2 + 40, height/2 - 50, width/2 - 40, 15));
         Maze3_walls.add(new Rectangle(width/2 + 40,height/2, 30,5));
         Maze3_walls.add(new Rectangle(width/2 + 10,height/2 - 120, 60,5));
@@ -284,14 +285,11 @@ public class Maze {
      * Drawing a wall down the middle so once you have chosen which side to go on you cannot go back to
      * the other side
      * @param maze_num what Maze it is
-     * @param canvas The canvas to draw the image
      */
-    public void shut_middle(int maze_num, Canvas canvas){
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.BLACK);
-        gc.fillRect(250,300,10,200);
+    public void save_shut_middle(int maze_num){
         if (maze_num == 1) {
             Maze1_walls.add(new Rectangle(250,300,10,200));
+
         }
         if(maze_num == 2){
             Maze2_walls.add(new Rectangle(250,300,10,200));
@@ -307,6 +305,15 @@ public class Maze {
         }
     }
 
+    /**
+     * rendering the 'gate'
+     * @param canvas where to draw everything
+     */
+    public void render_middle(Canvas canvas){
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.BLACK);
+        gc.fillRect(250,300,10,200);
+    }
 
     public void check_collisions(Player ball, int num) {
         ArrayList<Rectangle> Maze_walls;

@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -41,7 +40,7 @@ public class EndGraphic extends BorderPane{
             public void handle(ActionEvent actionEvent) {
                 Scene s = null;
 
-                GameGUI g = new GameGUI(1);
+                GameGUI g = new GameGUI(1,3, 0);
                 s = new Scene(g, 500, 500);
                 ((Stage) getScene().getWindow()).setScene(s);
                 g.pause(false);

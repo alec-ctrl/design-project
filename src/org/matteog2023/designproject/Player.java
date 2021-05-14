@@ -1,6 +1,5 @@
 package org.matteog2023.designproject;
 
-import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -110,9 +109,9 @@ public class Player {
         int downx = (int) Math.sqrt((Math.abs(height)*8-14)/.4) + 1;
 
         if (x > 35 || !gravity){
-                up = false;
-                x = 1;
-            }
+            up = false;
+            x = 1;
+        }
         if (downx > 35 || gravity) {
             down = false;
             downx = 1;
@@ -120,17 +119,61 @@ public class Player {
         double acceleration_formula = (.05 * ((x - 35) * (x - 35)) + 14) / 8;
         double acceleration_formula_down = (.05 * ((downx - 35) * (downx - 35)) + 14) / 8;
         if(up) {
-                player.y -= acceleration_formula;
+            player.y -= acceleration_formula;
 
-            } else if (gravity){
-                player.y += acceleration_formula;
-            }
+        } else if (gravity){
+            player.y += acceleration_formula;
+        }
         if(down) {
             player.y += acceleration_formula_down;
         } else if (!gravity){
             player.y -= acceleration_formula_down;
         }
     }
+
+    /**
+     * Check to see if two objects overlap each other
+     * Will not be that accurate because this is for circles, but it is good enough for checking player
+     * collisions with the goal
+     * @param other the other object
+     * @return true is this object intersects with other, false otherwise
+     */
+    public boolean intersects(goal other){
+        double xd = (other.x - this.x);
+        xd = Math.pow(xd, 2);
+
+        double yd = (other.y - this.y);
+        yd = Math.pow(yd, 2);
+
+
+        double rad = other.getWidth()/2 + this.width/2;
+        rad *= rad;
+
+        double distance = xd + yd;
+        return (distance < rad);
+    }
+    /**
+     * Check to see if two objects overlap each other
+     * Will not be that accurate because this is for circles, but it is good enough for checking player
+     * collisions with the goal
+     * @param other the other object
+     * @return true is this object intersects with other, false otherwise
+     */
+    public boolean intersects_player(Player other){
+        double xd = (other.x - this.x);
+        xd = Math.pow(xd, 2);
+        double yd = (other.y - this.y);
+        yd = Math.pow(yd, 2);
+
+
+        double rad = other.getWidth()/2 + this.width/2;
+        rad *= rad;
+
+
+        double distance = xd + yd;
+        return (distance < rad);
+    }
+
     /**
      * in case you hit a wall
      */

@@ -88,6 +88,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1raNRufQQw3Oj2Yfe2RPz8h9t4J" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -96,6 +97,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -104,19 +106,33 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/org/matteog2023/designproject" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
+<<<<<<< HEAD
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/org/matteog2023/designproject" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
+=======
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/org/matteog2023/designproject" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/org" />
+      <recent name="$PROJECT_DIR$/out/production/Design Project" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+>>>>>>> 27b7d69023b9d925bd5d7c32c6a56475fe468ce0
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -142,10 +158,8 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.matteog2023.designproject.Main" />
-      <module name="design-project" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="org.alecs2023.org.designproject.Main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.matteog2023.designproject.*" />
@@ -157,8 +171,8 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="org.alecs2023.designproject.Main" />
-      <module name="Design Project" />
+      <option name="MAIN_CLASS_NAME" value="org.matteog2023.designproject.Main" />
+      <module name="JavaProjects" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -231,6 +245,7 @@
       <option name="project" value="LOCAL" />
       <updated>1620418118236</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00002" summary="Merge Alec's code">
       <created>1620766004416</created>
       <option name="number" value="00002" />
@@ -253,6 +268,37 @@
       <updated>1621022599093</updated>
     </task>
     <option name="localTasksCounter" value="5" />
+=======
+    <task id="LOCAL-00002" summary="made the coin class">
+      <created>1620855400062</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620855400062</updated>
+    </task>
+    <task id="LOCAL-00003" summary="made it so if you hit an enemy_blob it dissapears and if you hit a bat you get moved to the side">
+      <created>1620941309290</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620941309290</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added the how_to_play class">
+      <created>1620949687841</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1620949687841</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Made Directions menu">
+      <created>1621021096259</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621021096259</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+>>>>>>> 27b7d69023b9d925bd5d7c32c6a56475fe468ce0
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -274,6 +320,7 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="attempt 2" />
+<<<<<<< HEAD
     <MESSAGE value="maze 4 and 5" />
     <MESSAGE value="Merge Alec's code" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge Alec's code" />
@@ -321,5 +368,12 @@
     </state>
     <state x="518" y="332" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1620762362195" />
     <state x="518" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.821@0.23.1440.821" timestamp="1621022527781" />
+=======
+    <MESSAGE value="made the coin class" />
+    <MESSAGE value="made it so if you hit an enemy_blob it dissapears and if you hit a bat you get moved to the side" />
+    <MESSAGE value="added the how_to_play class" />
+    <MESSAGE value="Made Directions menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made Directions menu" />
+>>>>>>> 27b7d69023b9d925bd5d7c32c6a56475fe468ce0
   </component>
 </project>
