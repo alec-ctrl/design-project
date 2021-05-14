@@ -53,12 +53,7 @@ public class StartGraphic extends BorderPane {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Scene s = null;
-
-<<<<<<< HEAD
-                GameGUI g = new GameGUI(5);
-=======
                 GameGUI g = new GameGUI(1, 3,0);
->>>>>>> 27b7d69023b9d925bd5d7c32c6a56475fe468ce0
                 s = new Scene(g, 500, 500);
                 ((Stage) getScene().getWindow()).setScene(s);
                 g.pause(false);

@@ -55,25 +55,31 @@ public class GameLogic {
 
 
     public GameLogic(double width, double height, int maze_num, int life_left, int coin_nums){
+        // Setting all the private attributes
         lives = life_left;
         coin_num = coin_nums;
         Maze_num = maze_num;
         gameTimer = new GameTimer();
         player = new Player();
-        player.setWidth(10);
-        player.setColor(Color.BLACK);
         maze = new Maze();
         blobs = new ArrayList<>();
         coins = new ArrayList<>();
+        //Setting the attributes of the player
+        player.setWidth(10);
+        player.setColor(Color.BLACK);
+        //Checking to see what maze you want to display
         if(Maze_num == 1){
             Goal1.x = 470;
             Goal1.y = 60;
             Goal2.x = 10;
             Goal2.y = 270;
+            //saving Maze_1
             maze.save_Maze1(width,height);
+            //placing two sets of three coins
             for(int i = 0; i < 3; i++){
                 Coins coin = new Coins();
                 coin.setWidth(10);
+                //Spacing each coin from another in the 'set' by 20 pixels
                 coin.x = 100 + 20 * i;
                 coin.y = 375;
                 coins.add(coin);
@@ -83,6 +89,7 @@ public class GameLogic {
                 coin1.y = 70;
                 coins.add(coin1);
             }
+            //Placing a set of 5 coins and three sets of 5 enemies
             for(int i = 0; i < 5; i++){
                 Coins coin = new Coins();
                 coin.setWidth(10);
@@ -100,22 +107,18 @@ public class GameLogic {
                 blob.x = 300 + 20 * i;
                 blob.y = 400;
                 blobs.add(blob);
-            }
-            for(int i = 0; i < 5; i++){
-                Enemy_Blob blob = new Enemy_Blob();
-                blob.setWidth(10);
-                blob.setColor(Color.RED);
-                blob.x = 30 + 20 * i;
-                blob.y = 400;
-                blobs.add(blob);
-            }
-            for(int i = 0; i < 5; i++){
-                Enemy_Blob blob = new Enemy_Blob();
-                blob.setWidth(10);
-                blob.setColor(Color.RED);
-                blob.x = 250 + 20 * i;
-                blob.y = 250;
-                blobs.add(blob);
+                Enemy_Blob blob2 = new Enemy_Blob();
+                blob2.setWidth(10);
+                blob2.setColor(Color.RED);
+                blob2.x = 30 + 20 * i;
+                blob2.y = 400;
+                blobs.add(blob2);
+                Enemy_Blob blob3 = new Enemy_Blob();
+                blob3.setWidth(10);
+                blob3.setColor(Color.RED);
+                blob3.x = 250 + 20 * i;
+                blob3.y = 250;
+                blobs.add(blob3);
             }
         }
         if(Maze_num == 2){
@@ -151,6 +154,7 @@ public class GameLogic {
                 coin.y = 130;
                 coins.add(coin);
             }
+            //Placing 3 sets of coins and 3 sets of blobs, each with 5 enemies
             for(int i = 0; i < 5; i++){
                 Coins coin = new Coins();
                 coin.setWidth(10);
@@ -167,23 +171,26 @@ public class GameLogic {
                 coin2.x = 100 + 20*i;
                 coin2.y = 320;
                 coins.add(coin2);
-            }
-            for(int i = 0; i < 5; i++){
                 Enemy_Blob blob = new Enemy_Blob();
                 blob.setWidth(10);
                 blob.setColor(Color.RED);
                 blob.x = 250 + 20 * i;
                 blob.y = 400;
                 blobs.add(blob);
+                Enemy_Blob blob2 = new Enemy_Blob();
+                blob2.setWidth(10);
+                blob2.setColor(Color.RED);
+                blob2.x = 310 + 20 * i;
+                blob2.y = 200;
+                blobs.add(blob2);
+                Enemy_Blob blob3 = new Enemy_Blob();
+                blob3.setWidth(10);
+                blob3.setColor(Color.RED);
+                blob3.x = 100 + 20 * i;
+                blob3.y = 100;
+                blobs.add(blob3);
             }
-            for(int i = 0; i < 5; i++){
-                Enemy_Blob blob = new Enemy_Blob();
-                blob.setWidth(10);
-                blob.setColor(Color.RED);
-                blob.x = 310 + 20 * i;
-                blob.y = 200;
-                blobs.add(blob);
-            }
+            //Adding a set of coins and blobs, each with 3 enemies
             for(int i = 0; i < 3; i++){
                 Coins coin = new Coins();
                 coin.setWidth(10);
@@ -197,20 +204,13 @@ public class GameLogic {
                 blob.y = 100;
                 blobs.add(blob);
             }
-            for(int i = 0; i < 5; i++){
-                Enemy_Blob blob = new Enemy_Blob();
-                blob.setWidth(10);
-                blob.setColor(Color.RED);
-                blob.x = 100 + 20 * i;;
-                blob.y = 100;
-                blobs.add(blob);
-            }
         }
         if(Maze_num == 3){
             Goal1.y = 10;
             Goal1.x = 150;
             Goal2.y = 60;
             Goal2.x = 300;
+            //Adding two bats to the array list
             bats = new ArrayList<>();
             Bat bat1 = new Bat();
             bat1.y = 90;
@@ -224,33 +224,31 @@ public class GameLogic {
             bat2.base_x = 300;
             bat2.base_height = bat2.y;
             bats.add(bat2);
+            //Adding three sets of 5 blobs
             for(int i = 0; i < 5; i++){
                 Enemy_Blob blob = new Enemy_Blob();
                 blob.setWidth(10);
                 blob.setColor(Color.RED);
-                blob.x = 100 + 20 * i;;
+                blob.x = 100 + 20 * i;
                 blob.y = 100;
                 blobs.add(blob);
+                Enemy_Blob blob2 = new Enemy_Blob();
+                blob2.setWidth(10);
+                blob2.setColor(Color.RED);
+                blob2.x = 300 + 20 * i;
+                blob2.y = 300;
+                blobs.add(blob2);
+                Enemy_Blob blob3 = new Enemy_Blob();
+                blob3.setWidth(10);
+                blob3.setColor(Color.RED);
+                blob3.x = 300 + 20 * i;
+                blob3.y = 100;
+                blobs.add(blob3);
             }
-            for(int i = 0; i < 5; i++){
-                Enemy_Blob blob = new Enemy_Blob();
-                blob.setWidth(10);
-                blob.setColor(Color.RED);
-                blob.x = 300 + 20 * i;;
-                blob.y = 300;
-                blobs.add(blob);
-            }
-            for(int i = 0; i < 5; i++){
-                Enemy_Blob blob = new Enemy_Blob();
-                blob.setWidth(10);
-                blob.setColor(Color.RED);
-                blob.x = 300 + 20 * i;;
-                blob.y = 100;
-                blobs.add(blob);
-            }
+            //Saving the maze
             maze.save_Maze3(width,height);
         }
-
+        //Placing the player
         player.x = 250;
         player.y = 450;
         if(maze_num == 4){
@@ -296,20 +294,14 @@ public class GameLogic {
                 bat.render(canvas);
             }
         }
-<<<<<<< HEAD
         if(Maze_num == 4){
             maze.render_Maze4(canvas);
         }
         if(Maze_num == 5){
             maze.render_Maze5(canvas);
         }
-        if( player.x > 270 || player.x < 230 || shut_middle){
-            maze.shut_middle(Maze_num, canvas);
-=======
-
         if((player.x > 270 || player.x < 230) && !shut_middle){
             maze.save_shut_middle(Maze_num);
->>>>>>> 27b7d69023b9d925bd5d7c32c6a56475fe468ce0
             shut_middle = true;
         }
         if(shut_middle){
