@@ -22,10 +22,11 @@ public class GameLogic {
     private ArrayList<Enemy_Blob> blobs;
     //the Coin arraylist
     private ArrayList<Coins> coins;
+    private ArrayList<Spikes> spikes;
     //The width and height of the canvas
     private double width, height;
     private GameTimer gameTimer;
-    public static final double GAME_STEP_TIMER = 15.75;
+    private static final double GAME_STEP_TIMER = 15.75;
     //What level maze you are on
     private int Maze_num;
     //'True' if the middle is blocked off so you cant go over to the other side
@@ -35,14 +36,19 @@ public class GameLogic {
     //the number of coins the player has
     private int coin_num;
     //The two goals
-    goal Goal1 = new goal();
-    goal Goal2 = new goal();
+    private goal Goal1 = new goal();
+    private goal Goal2 = new goal();
     //The goal image
-    Image image = new Image("https://cdn2.iconfinder.com/data/icons/symbol-gray-set-3a/100/1-15-512.png");
-
-
-
-
+    private Image image = new Image("https://cdn2.iconfinder.com/data/icons/symbol-gray-set-3a/100/1-15-512.png");
+    private Image image2 = new Image("https://lh3.googleusercontent.com/proxy/XDadRJALZGjdOOz7M-AEb3_DYDDbMvosGZ272nx5jIybeyEqrr-MoQop5SEGvyAxknjDF5sOQrhLtyyRAD5iyqgk0mHIjoRZ");
+    //Having this gameGUI here so I can pause it when I switch scenes
+    private GameGUI gameGUi;
+    //Counts up for each maze depending on if you took the riskier path
+    //max of 5
+    private int risk_num;
+    //This is to make sure I am not counting up the risk_num when the player is just
+    //on the same level and entering the shop
+    boolean Same_level;
 
     public enum DIRECTION {
         LEFT,
@@ -53,10 +59,23 @@ public class GameLogic {
     }
 
 
-
-    public GameLogic(double width, double height, int maze_num, int life_left, int coin_nums){
+    /**
+     *
+     * @param width The width of the canvas
+     * @param height The height of the canvas
+     * @param maze_num What Maze the player is on; here so after you shop you end up on the same maze
+     * @param life_left how much life you have; a parameter here so that you can save the value after you go shop
+     * @param coin_nums how many coins you have; it will change after you go shop
+     * @param gameGUI the GameGui; here so I can pause animtimer and gametimer when I switch to a different scene
+     * @param risk1_num what risk number you are at
+     * @param same_level if you are spawning on the same level you were just on; ie. did you just use the shop
+     */
+    public GameLogic(double width, double height, int maze_num, int life_left, int coin_nums, GameGUI gameGUI, int risk1_num, boolean same_level){
         // Setting all the private attributes
+        Same_level = same_level;
+        risk_num = risk1_num;
         lives = life_left;
+        gameGUi =gameGUI;
         coin_num = coin_nums;
         Maze_num = maze_num;
         gameTimer = new GameTimer();
@@ -64,6 +83,7 @@ public class GameLogic {
         maze = new Maze();
         blobs = new ArrayList<>();
         coins = new ArrayList<>();
+        spikes = new ArrayList<>();
         //Setting the attributes of the player
         player.setWidth(10);
         player.setColor(Color.BLACK);
@@ -244,6 +264,26 @@ public class GameLogic {
                 blob3.x = 300 + 20 * i;
                 blob3.y = 100;
                 blobs.add(blob3);
+                Coins coin = new Coins();
+                coin.setWidth(10);
+                coin.x = 300 + 20*i;
+                coin.y = 70;
+                coins.add(coin);
+                Coins coin1 = new Coins();
+                coin1.setWidth(10);
+                coin1.x = 250 + 20*i;
+                coin1.y = 180;
+                coins.add(coin1);
+                Coins coin2 = new Coins();
+                coin2.setWidth(10);
+                coin2.x = 400 + 20*i;
+                coin2.y = 300;
+                coins.add(coin2);
+                Coins coin3 = new Coins();
+                coin3.setWidth(10);
+                coin3.x = 100 + 20*i;
+                coin3.y = 70;
+                coins.add(coin3);
             }
             //Saving the maze
             maze.save_Maze3(width,height);
@@ -259,12 +299,17 @@ public class GameLogic {
         }
     }
 
+    /**
+     * rendering all the enemies, coins, player, maze, etc...
+     * @param canvas the Canvas you are drawing onto
+     */
     public void render(Canvas canvas){
         width = canvas.getWidth();
         height = canvas.getHeight();
         player.render(canvas);
         Goal2.render(canvas, image);
         Goal1.render(canvas, image);
+
         for(int i = 0; i < coins.size(); i++){
             Coins coin = coins.get(i);
             if(!coin.intersects_player(player) ){
@@ -275,6 +320,7 @@ public class GameLogic {
                 coins.remove(coin);
             }
         }
+
         for (Enemy_Blob blob : blobs) {
             blob.render(canvas);
         }
@@ -303,19 +349,35 @@ public class GameLogic {
         if((player.x > 270 || player.x < 230) && !shut_middle){
             maze.save_shut_middle(Maze_num);
             shut_middle = true;
+            //The right side is the harder side so far
+            if(player. x > 270 && !Same_level){
+                risk_num++;
+            }
         }
         if(shut_middle){
             maze.render_middle(canvas);
+        }
+        for(Spikes spike : spikes){
+            spike.render(canvas, image2);
         }
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
         gc.fillText("Lives Left: "+ lives, 10,20);
         gc.fillText("Coins Left: "+ coin_num, 10,40);
     }
+
+    /**
+     * stops the player
+     */
     public void stop_player(){
         player.velX = 0;
         player.velY = 0;
     }
+
+    /**
+     * tying key presses and directions with actions like jumping
+     * @param direction what direction you want to go to
+     */
     public void applyForce(DIRECTION direction){
         if(direction == DIRECTION.LEFT){
             player.velX = 0;
@@ -353,141 +415,135 @@ public class GameLogic {
             }
         }
     }
-    private void collideBlob(Enemy_Blob blob) {
-        //above bottom
-        //For this you essentially only need one thing of code because as soon as it detects you
-        //hitting the blob, it will just remove it from the ArrayLis
-        if (player.y <= blob.y &&
-                //below top
-                player.y + player.getWidth() >= blob.y + blob.getWidth() &&
-                //left of right side
-                player.x <= blob.x + blob.getWidth() &&
-                //right of left side
-                player.x + player.getWidth() >= blob.x
-        ) {
-            blobs.remove(blob);
-            lives -= blob.Damage();
-        }
+
+
+    /**
+     * Returns how many coins you have
+     */
+    public int get_coins(){
+        return coin_num;
     }
-    private boolean collide_goal(goal Goal){
 
-        return player.intersects(Goal);
-
+    /**
+     * @return how many lives you have
+     */
+    public int get_lives(){
+        return lives;
     }
-    private void collide_bat(){
-        for (Bat bat : bats) {
-            //Essentially the same code from collideMaze except replacing the maze with blob and ball with player
-            if (player.y < bat.y + bat.getWidth() &&
-                    //below top
-                    player.y >= bat.y &&
-                    //left of right side
-                    player.x < bat.x + bat.getWidth() &&
-                    //right of left side
-                    player.x > bat.x &&
-                    player.y + player.getWidth() < bat.y + bat.getWidth() &&
-                    //below top
-                    player.y + player.getWidth() > bat.y) {
-                player.x = bat.x + 30;
-                lives--;
-            }
 
-            //wall right
-            if (player.y + player.getWidth() < bat.y + bat.getWidth() &&
-                    //below top
-                    player.y + player.getWidth() > bat.y &&
-                    //left of right side
-                    player.x + player.getWidth() < bat.y + bat.getWidth() &&
-                    //right of left side
-                    player.x + player.getWidth() > bat.x &&
-                    player.y < bat.y + bat.getWidth() &&
-                    //below top
-                    player.y >= bat.y
-                //left of right side
+    /**
+     * @return what the risk level is
+     * So I can keep it constant even when you go to the shop
+     */
+    public int getRisk_num(){
+        return risk_num;
+    }
 
-            ) {
-                player.x = bat.x + 30;
-                lives--;
-            }
+    private void collideBlob(Enemy_Blob blob, ArrayList arrayList) {
+        //if the player has already been dealt a damage by this blob
+        boolean hit = false;
+        //Essentially the same code from collideMaze except replacing the maze with a blob and ball with player
+
 
             //Using i here so I can detect more precise lengths while still detecting larger lengths
             for (int i = (int) player.getWidth(); i > 0; i--) {
-                //bottom
-                if (player.x < bat.x + bat.getWidth() &&
+                if (player.y + i< blob.y + blob.getWidth() &&
                         //below top
-                        player.x > bat.x &&
+                        player.y + i > blob.y &&
                         //left of right side
-                        player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                        player.x + player.getWidth() < blob.x + blob.getWidth() &&
                         //right of left side
-                        player.y + player.getWidth() > bat.y &&
-                        player.x + player.getWidth() - i < bat.x + bat.getWidth() &&
+                        player.x + player.getWidth() > blob.x &&
+                        player.y + player.getWidth() - i < blob.y + blob.getWidth() &&
                         //below top
-                        player.x + player.getWidth() - i > bat.x)
+                        player.y + player.getWidth() - i > blob.y)
                 //left of right side
                 {
-                    player.x = bat.x + 30;
-                    lives--;
-
+                    if(!hit){
+                        if (blob.remove_blob()) {
+                            arrayList.remove(blob);
+                        }
+                        lives -= blob.Damage();
+                        hit=true;
+                        blob.move_player(player);
+                    }
                 }
                 //top
-                if (player.x < bat.x + bat.getWidth() &&
+                if (player.y + i < blob.y + blob.getWidth() &&
                         //below top
-                        player.x > bat.x &&
+                        player.y + i > blob.y &&
                         //left of right side
-                        player.y < bat.y + bat.getWidth() &&
+                        player.x < blob.x + blob.getWidth() &&
                         //right of left side
-                        player.y > bat.y &&
-                        player.x + player.getWidth() - i < bat.x + bat.getWidth() &&
+                        player.x > blob.x &&
+                        player.y + player.getWidth() - i < blob.y + blob.getWidth() &&
                         //below top
-                        player.x + player.getWidth() - i > bat.x
+                        player.y + player.getWidth() - i > blob.y
                     //left of right side
 
                 ) {
-
-                    player.x = bat.x +30;
-                    lives--;
+                    if(!hit){
+                        if (blob.remove_blob()) {
+                            arrayList.remove(blob);
+                        }
+                        lives -= blob.Damage();
+                        hit=true;
+                        blob.move_player(player);
+                    }
 
                 }
-            }
-            for (int i = (int) player.getWidth(); i > 0; i--) {
                 //bottom
-                if (player.x + i < bat.x + bat.getWidth() &&
+                if (player.x + i < blob.x + blob.getWidth() &&
                         //below top
-                        player.x + i > bat.x &&
+                        player.x + i > blob.x &&
                         //left of right side
-                        player.y + player.getWidth() < bat.y + bat.getWidth() &&
+                        player.y + player.getWidth() < blob.y + blob.getWidth() &&
                         //right of left side
-                        player.y + player.getWidth() > bat.y &&
-                        player.x + player.getWidth() < bat.x + bat.getWidth() &&
+                        player.y + player.getWidth() > blob.y &&
+                        player.x + player.getWidth() < blob.x + blob.getWidth() &&
                         //below top
-                        player.x + player.getWidth() > bat.x)
+                        player.x + player.getWidth() > blob.x)
                 //left of right side
                 {
-
-                    player.x = bat.x + 30;
-                    lives--;
-
+                    if(!hit){
+                        if (blob.remove_blob()) {
+                            arrayList.remove(blob);
+                        }
+                        lives -= blob.Damage();
+                        hit=true;
+                        blob.move_player(player);
+                    }
                 }
                 //top
-                if (player.x + i < bat.x + bat.getWidth() &&
+                if (player.x + i < blob.x + blob.getWidth() &&
                         //below top
-                        player.x + i > bat.x &&
+                        player.x + i > blob.x &&
                         //left of right side
-                        player.y < bat.y + bat.getWidth() &&
+                        player.y < blob.y + blob.getWidth() &&
                         //right of left side
-                        player.y > bat.y &&
-                        player.x + player.getWidth() < bat.x + bat.getWidth() &&
+                        player.y > blob.y &&
+                        player.x + player.getWidth() < blob.x + blob.getWidth() &&
                         //below top
-                        player.x + player.getWidth() > bat.x
+                        player.x + player.getWidth() > blob.x
                     //left of right side
 
                 ) {
-                    player.x = bat.x + 30;
-                    lives--;
+                    if(!hit){
+                        if (blob.remove_blob()) {
+                            arrayList.remove(blob);
+                        }
+                        lives -= blob.Damage();
+                        hit=true;
+                        blob.move_player(player);
+                    }
 
                 }
             }
-        }
     }
+    private boolean collide_goal(goal Goal){
+        return player.intersects(Goal);
+    }
+
 
 
     /**
@@ -520,7 +576,7 @@ public class GameLogic {
             if(!(player instanceof Enemy_Blob)){
                 // If you end up on the top, transporting you to the bottom with one less life
                 player.y = 400;
-                lives--;
+                lives -= 1;
             }
         }
         if (player.y + player.getWidth() >= height){
@@ -576,55 +632,68 @@ public class GameLogic {
 
                 onScreen(player);
 
-                maze.falling(player);
+                player.falling();
                 if (Maze_num == 2 || Maze_num == 3){
-                    collide_bat();
                     for(Bat bat : bats){
                         bat.swoop();
+                        collideBlob(bat, bats);
+
+                    }
+                }
+                if(Maze_num == 4 || Maze_num == 5){
+                    for (Spikes spike : spikes){
+                        collideBlob(spike, spikes);
 
                     }
                 }
 
                 for(int i = 0; i < blobs.size(); i++){
                     Enemy_Blob blob = blobs.get(i);
-                    maze.falling(blob);
+                    blob.falling();
                     maze.check_collisions(blob, Maze_num);
                     onScreen(blob);
-                    collideBlob(blob);
+                    collideBlob(blob, blobs);
                     blob.move();
                 }
 
 
                 if(collide_goal(Goal1) || collide_goal(Goal2)){
+                    gameGUi.pause(true, true);
+                    if(Maze_num == 5){
+                        EndGraphic new_scene = new EndGraphic(Integer.toString(risk_num));
+                        Scene scene = new Scene(new_scene, 500,500);
+                        Main.switchscene(scene);
+                    }else{
+                        GameGUI new_scene= new GameGUI(Maze_num + 1, lives, coin_num, risk_num, false);
+                        Scene scene = new Scene(new_scene, 500,500);
+                        Main.switchscene(scene);
+                        player.x = 250;
+                        player.y = 300;
+                        scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+                            @Override
+                            public void handle(KeyEvent keyEvent) {
+                                new_scene.handleKeyPress(keyEvent);
+                            }
+                        });
 
-                    GameGUI gameGUI= new GameGUI(Maze_num + 1, lives, coin_num);
-                    Scene scene = new Scene(gameGUI, 500,500);
-                    Main.switchscene(scene);
-                    player.x = 250;
-                    player.y = 300;
-                    scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-                        @Override
-                        public void handle(KeyEvent keyEvent) {
-                            gameGUI.handleKeyPress(keyEvent);
-                        }
-                    });
+                        scene.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
+                            @Override
+                            public void handle(KeyEvent keyEvent) {
+                                new_scene.handleKeyRelease(keyEvent);
+                            }
+                        });
+                    }
 
-                    scene.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
-                        @Override
-                        public void handle(KeyEvent keyEvent) {
-                            gameGUI.handleKeyRelease(keyEvent);
-                        }
-                    });
+
                 }
+
+
                 if(lives <= 0){
-                    //TODO MAKE A RISK_RATING HERE
-                    EndGraphic endGraphic= new EndGraphic("3");
+                    EndGraphic endGraphic= new EndGraphic(String.valueOf(risk_num));
                     Scene scene = new Scene(endGraphic, 500,500);
                     pause(true);
                     Main.switchscene(scene);
                 }
-
-
                 lastUpdate = now;
             }
         }

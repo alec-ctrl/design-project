@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 
 public class StartGraphic extends BorderPane {
 
-
+    /**
+     * Creating a start button, a shop button, and a how to play button
+     */
     StartGraphic(){
         VBox buttonbox = new VBox();
 
@@ -53,7 +55,7 @@ public class StartGraphic extends BorderPane {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Scene s = null;
-                GameGUI g = new GameGUI(1, 3,0);
+                GameGUI g = new GameGUI(1, 3,0, 0, false);
                 s = new Scene(g, 500, 500);
                 ((Stage) getScene().getWindow()).setScene(s);
                 g.pause(false);

@@ -12,5 +12,10 @@ public class Enemy_Blob extends Player{
         return 1;
     }
 
+    /**
+     * @return if the blob is supposed to disappear after you hit it
+     */
+    public boolean remove_blob(){return true;}
+
 
 }
