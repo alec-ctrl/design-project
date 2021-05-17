@@ -16,7 +16,10 @@ public class Maze {
     private ArrayList<Rectangle>  Maze4_walls;
     private ArrayList<Rectangle>  Maze5_walls;
 
-
+    /**
+     * rendering maze 1
+     * @param canvas the canvas you are drawing on
+     */
     public void render_Maze1(Canvas canvas) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
@@ -41,6 +44,10 @@ public class Maze {
         gc.fillRect( 100, height - 150, 30, 10);
 
     }
+    /**
+     * rendering maze 2
+     * @param canvas the canvas you are drawing on
+     */
     public void render_Maze2(Canvas canvas) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
@@ -76,6 +83,10 @@ public class Maze {
         gc.fillRect(150,height /2 - 200, 40,10);
         gc.fillRect(0,height /2 - 30, 40,10);
     }
+    /**
+     * rendering maze 3
+     * @param canvas the canvas you are drawing on
+     */
     public void render_Maze3(Canvas canvas){
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
@@ -98,7 +109,10 @@ public class Maze {
         gc.fillRect(width/2 + 85,height - 200, 5,20);;
 
     }
-
+    /**
+     * rendering maze 4
+     * @param canvas the canvas you are drawing on
+     */
     public void render_Maze4(Canvas canvas) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
@@ -115,7 +129,10 @@ public class Maze {
         gc.fillRect(150, 30, 100, 90);
 
     }
-
+    /**
+     * rendering maze 5
+     * @param canvas the canvas you are drawing on
+     */
     public void render_Maze5(Canvas canvas) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
@@ -146,7 +163,13 @@ public class Maze {
         gc.fillRect(0, height - 470, 50, 10);
 
     }
-
+    /**
+     * saving maze 1 into an arraylist
+     *  Seperate from the rendering function so the arraylist doesnt get infinitely
+     *  long
+     * @param Height The height of the canvas
+     * @param Width the width of the canvas
+     */
     //So I only am adding to the arraylist once, instead of each time I render
     public void save_Maze1(double Width, double Height){
         width = Width;
@@ -171,6 +194,13 @@ public class Maze {
         Maze1_walls.add(new Rectangle(60, height - 110, 30, 10));
         Maze1_walls.add(new Rectangle(100, height - 150, 30, 10));
     }
+    /**
+     * saving maze 2 into an arraylist
+     *  Separate from the rendering function so the arraylist doesnt get infinitely
+     *  long
+     * @param Height The height of the canvas
+     * @param Width the width of the canvas
+     */
     public void save_Maze2(double Width, double Height){
         width = Width;
         height = Height;
@@ -206,6 +236,13 @@ public class Maze {
         Maze2_walls.add(new Rectangle(150,height /2 - 200, 40,10));
         Maze2_walls.add(new Rectangle(0,height /2 - 30, 40,10));
     }
+    /**
+     * saving maze 3 into an arraylist
+     *  Separate from the rendering function so the arraylist doesnt get infinitely
+     *  long
+     * @param Height The height of the canvas
+     * @param Width the width of the canvas
+     */
     public void save_Maze3(double Width, double Height){
         width = Width;
         height = Height;
@@ -231,6 +268,13 @@ public class Maze {
 
     }
 
+    /**
+     * saving maze 4 into an arraylist
+     *  Separate from the rendering function so the arraylist doesnt get infinitely
+     *  long
+     * @param Height The height of the canvas
+     * @param Width the width of the canvas
+     */
     public void save_Maze4(double Width, double Height) {
         width = Width;
         height = Height;
@@ -249,6 +293,13 @@ public class Maze {
 
     }
 
+    /**
+     * saving maze 5 into an arraylist
+     *  Separate from the rendering function so the arraylist doesnt get infinitely
+     *  long
+     * @param Height The height of the canvas
+     * @param Width the width of the canvas
+     */
     public void save_Maze5(double Width, double Height) {
         width = Width;
         height = Height;
@@ -279,7 +330,6 @@ public class Maze {
         Maze5_walls.add(new Rectangle(width/2 - 170, height - 450, 40, 10));
         Maze5_walls.add(new Rectangle(0, height - 470, 50, 10));
 
-
     }
     /**
      * Drawing a wall down the middle so once you have chosen which side to go on you cannot go back to
@@ -289,7 +339,6 @@ public class Maze {
     public void save_shut_middle(int maze_num){
         if (maze_num == 1) {
             Maze1_walls.add(new Rectangle(250,300,10,200));
-
         }
         if(maze_num == 2){
             Maze2_walls.add(new Rectangle(250,300,10,200));
@@ -315,6 +364,12 @@ public class Maze {
         gc.fillRect(250,300,10,200);
     }
 
+    /**
+     * Going through current maze's arraylist and checking for collisions
+     * If there is one, dealing with it appropriately
+     * @param ball the object
+     * @param num the maze you are on
+     */
     public void check_collisions(Player ball, int num) {
         ArrayList<Rectangle> Maze_walls;
         Maze_walls = new ArrayList<>();
@@ -541,26 +596,5 @@ public class Maze {
             }
         }
     }
-    //TODO MOVE THIS TO THE PLAYER TAB WHY IS IT IN THE MAZE TAB
-    public void falling(Player player){
-        if(!player.on_ground && !player.jump && player.gravity){
-            player.y += 4;
 
-        } else if(!player.on_ground && !player.jump){
-            player.y -= 2;
-        }
-        if(player.on_ceiling && player.gravity){
-            player.y += 4;
-            //need to break the jump so I dont get stuck in some loop
-            player.jump = false;
-        }
-        if(player.on_ceiling && !player.gravity){
-
-            player.y -= 2;
-            //need to break the jump so I dont get stuck in some loop
-            player.jump = false;
-        }
-        player.on_ground = false;
-        player.on_ceiling = false;
-    }
 }

@@ -1,6 +1,9 @@
 package org.matteog2023.designproject;
 
 import javafx.animation.AnimationTimer;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -9,13 +12,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class GameGUI extends BorderPane {
     private Canvas gameArea;
     private AnimationTimer animTimer;
     private GameLogic logic;
 
-    public GameGUI(int maze_num, int lives, int coin_num){
+    public GameGUI(int maze_num, int lives, int coin_num, int risk_num, boolean same_level){
         gameArea = new Canvas();
         gameArea.heightProperty().bind(this.heightProperty());
         gameArea.widthProperty().bind(this.widthProperty());
@@ -25,6 +29,7 @@ public class GameGUI extends BorderPane {
         shop.setLayoutY(470);
         //to prevent the space bar from firing this button instead of changing the gravity
         shop.setFocusTraversable(false);
+
         Pane pane = new Pane();
         pane.getChildren().add(shop);
         animTimer = new AnimTimer();
@@ -32,9 +37,18 @@ public class GameGUI extends BorderPane {
 
         //giving it the width and height of the canvas
         //maze_num is what number Maze you want
-        logic = new GameLogic(500,500,maze_num, lives, coin_num);
-        pause(false, false);
+        logic = new GameLogic(500,500,maze_num, lives, coin_num, this, risk_num, same_level);
 
+        shop.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                pause(true,true);
+                Shop g = new Shop( logic.get_coins(),logic.get_lives(), maze_num, logic.getRisk_num());
+                Scene s = new Scene(g, 500, 500);
+                Main.switchscene(s);
+            }
+        });
+        pause(false, false);
 
         this.getChildren().addAll(gameArea, pane);
 

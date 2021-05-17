@@ -20,13 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Merge Alec's code">
-      <change afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/ShopGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Shop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Spikes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Bat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Bat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Directions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/EndGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/EndGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Enemy_Blob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Enemy_Blob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/StartGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/StartGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/goal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,12 +95,17 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
-  <component name="Git.Pull.Settings">
-    <option name="BRANCH" value="master" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1raNRufQQw3Oj2Yfe2RPz8h9t4J" />
@@ -118,10 +131,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/org/matteog2023/designproject" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -263,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621022599093</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="edited directions">
+      <created>1621024930882</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621024930882</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -287,59 +309,7 @@
     <MESSAGE value="attempt 2" />
     <MESSAGE value="maze 4 and 5" />
     <MESSAGE value="Merge Alec's code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge Alec's code" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="447" y="242" key="#Notifications" timestamp="1621022687531">
-      <screen x="0" y="23" width="1440" height="822" />
-    </state>
-    <state x="447" y="242" key="#Notifications/0.23.1440.822@0.23.1440.822" timestamp="1621022687531" />
-    <state width="1358" height="197" key="GridCell.Tab.0.bottom" timestamp="1621024497432">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state width="1358" height="197" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1620983308948" />
-    <state width="1358" height="197" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1621024497432" />
-    <state width="1358" height="197" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1621024087759" />
-    <state width="1358" height="197" key="GridCell.Tab.0.center" timestamp="1621024497431">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state width="1358" height="197" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1620983308947" />
-    <state width="1358" height="197" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1621024497431" />
-    <state width="1358" height="197" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1621024087758" />
-    <state width="1358" height="197" key="GridCell.Tab.0.left" timestamp="1621024497430">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state width="1358" height="197" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1620983308946" />
-    <state width="1358" height="197" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1621024497430" />
-    <state width="1358" height="197" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1621024087758" />
-    <state width="1358" height="197" key="GridCell.Tab.0.right" timestamp="1621024497431">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state width="1358" height="197" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1620983308948" />
-    <state width="1358" height="197" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1621024497431" />
-    <state width="1358" height="197" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1621024087759" />
-    <state x="305" y="161" key="IDE.errors.dialog" timestamp="1620417893571">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state x="305" y="161" key="IDE.errors.dialog/0.23.1440.816@0.23.1440.816" timestamp="1620417893571" />
-    <state x="357" y="179" key="MultipleFileMergeDialog" timestamp="1620766036008">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state x="357" y="179" key="MultipleFileMergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1620766036008" />
-    <state x="205" y="23" width="1024" height="821" key="SettingsEditor" timestamp="1621024658358">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state x="205" y="23" width="1024" height="821" key="SettingsEditor/0.23.1440.821@0.23.1440.821" timestamp="1621024658358" />
-    <state x="317" y="152" key="Vcs.Push.Dialog.v2" timestamp="1621023829854">
-      <screen x="0" y="23" width="1440" height="822" />
-    </state>
-    <state x="317" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1620766051850" />
-    <state x="317" y="152" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1621022446248" />
-    <state x="317" y="152" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1621023829854" />
-    <state x="518" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621024673629">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state x="518" y="332" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1620762362195" />
-    <state x="518" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.821@0.23.1440.821" timestamp="1621024673629" />
+    <MESSAGE value="edited directions" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited directions" />
   </component>
 </project>

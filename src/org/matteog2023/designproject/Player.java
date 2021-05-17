@@ -101,6 +101,11 @@ public class Player {
 
     }
 
+    /**
+     * the function for jumping
+     * @param base_height what height you began your jump at
+     * @param player the player that is jumping
+     */
     public void jump(int base_height, Player player ){
         int height = (int) (base_height - player.y );
 
@@ -172,6 +177,37 @@ public class Player {
 
         double distance = xd + yd;
         return (distance < rad);
+    }
+
+    /**
+     * checking if a player object is falling based on if it doesn't have ground under it and the gravity orientation
+     */
+    public void falling(){
+        if(!this.on_ground && !this.jump && this.gravity){
+            this.y += 4;
+
+        } else if(!this.on_ground && !this.jump){
+            this.y -= 2;
+        }
+        if(this.on_ceiling && this.gravity){
+            this.y += 4;
+            //need to break the jump so I dont get stuck in some loop
+            this.jump = false;
+        }
+        if(this.on_ceiling && !this.gravity){
+
+            this.y -= 2;
+            //need to break the jump so I dont get stuck in some loop
+            this.jump = false;
+        }
+        this.on_ground = false;
+        this.on_ceiling = false;
+    }
+
+    /**
+     * moving the player according to what type of enemy it is
+     */
+    public void move_player(Player player){
     }
 
     /**

@@ -18,6 +18,10 @@ import javafx.stage.Stage;
 public class Directions extends BorderPane {
     private Label how_to_play;
     private Pane top_box;
+
+    /**
+     * Putting on the screen the basic directions to the game
+     */
     Directions(){
         Button back = new Button("Back");
         how_to_play = new Label();
