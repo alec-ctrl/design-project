@@ -364,7 +364,6 @@ public class Maze {
         gc.fillRect(250,300,10,200);
     }
 
-<<<<<<< HEAD
     public void shut_middle(int maze_num){
         if (maze_num == 1) {
             Maze1_walls.add(new Rectangle(250,300,10,200));
@@ -384,14 +383,12 @@ public class Maze {
     }
 
 
-=======
     /**
      * Going through current maze's arraylist and checking for collisions
      * If there is one, dealing with it appropriately
      * @param ball the object
      * @param num the maze you are on
      */
->>>>>>> 56c06304eb37302610bc411211db45ca3725a7ad
     public void check_collisions(Player ball, int num) {
         ArrayList<Rectangle> Maze_walls;
         Maze_walls = new ArrayList<>();
