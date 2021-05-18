@@ -7,13 +7,22 @@ import javafx.scene.paint.Color;
 public class Player {
     private double width;
     private Color color;
+    //If you are jumping up
     public boolean up = true;
+    //If you are jumping down
     public boolean down = false;
+    //If you are actively in the middle of the jump
+    //So you can't double-jump
     public boolean jump;
+    //The base-height of your jump, so you return to that height
+    //Reset when you hit ground again
     public double base_height;
-    public double x, y;     //Center point of the square
+    //top left of the player object
+    public double x, y;
     public double velX, velY;
+    //True if it is on, false if it is zero-gravity
     public boolean gravity = true;
+    //If the player is on_ground
     public boolean on_ground;
     //So I can tell if the ball is on the ceiling and set jump to false
     public boolean on_ceiling;

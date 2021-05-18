@@ -33,8 +33,8 @@ public class Shop extends BorderPane {
 
     Shop(int coin_num, int lives_num, int maze_num, int risk_num){
         coin_num1 = coin_num;
-
         lives_num1 = lives_num;
+        //Making a pane so I can specify the coordinates of each label
         Pane buttonbox = new Pane();
         this.setCenter(buttonbox);
 
@@ -67,18 +67,16 @@ public class Shop extends BorderPane {
             public void handle(ActionEvent actionEvent) {
                 if(coin_num1 >= 7){
                     lives_num1 +=3;
-
                     //it will cost 7 coins to buy 3 lives
                     coin_num1 -= 7;
                 }
-
                 //Updating the label after you hit a button
                 lives_label.setText("Your Life: " + lives_num1);
                 coins_label.setText("Your Coins: " + coin_num1);
 
             }
         });
-
+        //The button is your level if you click it
         Button back = new Button("Back");
         back.setMinSize(150, 40);
         back.setOnAction(new EventHandler<ActionEvent>() {

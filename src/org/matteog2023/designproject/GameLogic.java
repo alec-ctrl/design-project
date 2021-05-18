@@ -608,9 +608,14 @@ public class GameLogic {
 
         }
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.BLACK);
-        gc.fillText("Lives Left: "+ lives, 10,20);
-        gc.fillText("Coins Left: "+ coin_num, 10,40);
+        gc.setFill(Color.RED);
+        if(Maze_num == 5){
+            gc.fillText("Lives Left: "+ lives, 270,20);
+            gc.fillText("Coins Left: "+ coin_num, 270,40);
+        } else {
+            gc.fillText("Lives Left: "+ lives, 10,20);
+            gc.fillText("Coins Left: "+ coin_num, 10,40);
+        }
     }
 
     /**

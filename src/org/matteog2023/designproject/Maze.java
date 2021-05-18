@@ -8,8 +8,9 @@ import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 
 public class Maze {
+    //The width and height of the canvas
     private double width, height;
-    //the arraylist storing all the maze1 walls
+    //the arraylists storing all the maze1 walls
     private ArrayList<Rectangle>  Maze1_walls;
     private ArrayList<Rectangle>  Maze2_walls;
     private ArrayList<Rectangle>  Maze3_walls;
@@ -70,12 +71,10 @@ public class Maze {
         gc.fillRect(width/2 + 70,height/2 - 140, 30,10);
         gc.fillRect(width/2 + 160,height/2 - 100, 30,10);
         gc.fillRect(width/2 + 200,height/2 - 50, 30,10);
-
         gc.fillRect(30, height - 200, width / 2 - 90, 10);
         gc.fillRect(125,height - 150, 30,10);
         gc.fillRect(185,height - 150, 30,10);
-
-        gc.fillRect(130,height /2, 20,10);
+        gc.fillRect(130,height /2, 30,10);
         gc.fillRect(80,height /2 - 60, 30,10);
         gc.fillRect(150,height /2 - 50, 30,10);
         gc.fillRect(30,height /2 - 110, 30,10);
@@ -144,21 +143,21 @@ public class Maze {
         gc.fillRect( width - 100, height - 100, 100, 10);
         gc.fillRect(width/2, height - 190, 200, 10);
         gc.fillRect(width/2 + 60, height - 280, 200, 10);
-        gc.fillRect(width/2, height - 360, 50 , 30);
-        gc.fillRect(width/2, height - 390, 80, 30);
-        gc.fillRect(width/2, height - 420, 110, 30);
-        gc.fillRect(width/2, height - 450, 140, 30);
-        gc.fillRect(width/2, height - 480, 170, 30);
-        gc.fillRect(width/2, height - 510, 250, 30);
-        gc.fillRect(width/2 + 90, height - 310, 180, 30);
-        gc.fillRect(width/2 + 120, height - 340, 180, 30);
-        gc.fillRect(width/2 + 150, height - 370, 180, 30);
-        gc.fillRect(width/2 + 180, height - 400, 180, 30);
+        gc.fillRect(width/2, height - 360, 50 , 40);
+        gc.fillRect(width/2, height - 390, 80, 40);
+        gc.fillRect(width/2, height - 420, 110, 40);
+        gc.fillRect(width/2, height - 450, 140, 40);
+        gc.fillRect(width/2, height - 480, 170, 40);
+        gc.fillRect(width/2, height - 510, 250, 40);
+        gc.fillRect(width/2 + 90, height - 310, 180, 40);
+        gc.fillRect(width/2 + 120, height - 340, 180, 40);
+        gc.fillRect(width/2 + 150, height - 370, 180, 40);
+        gc.fillRect(width/2 + 180, height - 400, 180, 40);
         gc.fillRect(width/2 - 180, height - 140, 180, 10);
-        gc.fillRect(width/2 - 140, height - 160, 10, 30);
-        gc.fillRect(width/2 - 100, height - 160, 10, 30);
+        gc.fillRect(width/2 - 140, height - 160, 10, 40);
+        gc.fillRect(width/2 - 100, height - 160, 10, 40);
         gc.fillRect(0, height - 230, 200, 10);
-        gc.fillRect(190, height- 220, 10, 30);
+        gc.fillRect(190, height- 220, 10, 40);
         gc.fillRect(width/2 - 70, height - 420, 40, 10);
         gc.fillRect(width/2 - 170, height - 450, 40, 10);
         gc.fillRect(0, height - 470, 50, 10);
@@ -236,6 +235,7 @@ public class Maze {
         Maze2_walls.add(new Rectangle(100,height /2 - 150, 30,10));
         Maze2_walls.add(new Rectangle(150,height /2 - 200, 40,10));
         Maze2_walls.add(new Rectangle(0,height /2 - 30, 40,10));
+
     }
     /**
      * saving maze 3 into an arraylist
@@ -313,21 +313,21 @@ public class Maze {
         Maze5_walls.add(new Rectangle(width - 100, height - 100, 100, 10));
         Maze5_walls.add(new Rectangle(width/2, height - 190, 200, 10));
         Maze5_walls.add(new Rectangle(width/2 + 60, height - 280, 200, 10));
-        Maze5_walls.add(new Rectangle(width/2, height - 360, 50 , 30));
-        Maze5_walls.add(new Rectangle(width/2, height - 390, 80, 30));
-        Maze5_walls.add(new Rectangle(width/2, height - 420, 110, 30));
-        Maze5_walls.add(new Rectangle(width/2, height - 450, 140, 30));
-        Maze5_walls.add(new Rectangle(width/2, height - 480, 170, 30));
-        Maze5_walls.add(new Rectangle(width/2, height - 510, 250, 30));
-        Maze5_walls.add(new Rectangle(width/2 + 90, height - 310, 180, 30));
-        Maze5_walls.add(new Rectangle(width/2 + 120, height - 340, 180, 30));
-        Maze5_walls.add(new Rectangle(width/2 + 150, height - 370, 180, 30));
-        Maze5_walls.add(new Rectangle(width/2 + 180, height - 400, 180, 30));
+        Maze5_walls.add(new Rectangle(width/2, height - 360, 50 , 40));
+        Maze5_walls.add(new Rectangle(width/2, height - 390, 80, 40));
+        Maze5_walls.add(new Rectangle(width/2, height - 420, 110, 40));
+        Maze5_walls.add(new Rectangle(width/2, height - 450, 140, 40));
+        Maze5_walls.add(new Rectangle(width/2, height - 480, 170, 40));
+        Maze5_walls.add(new Rectangle(width/2, height - 510, 250, 40));
+        Maze5_walls.add(new Rectangle(width/2 + 90, height - 310, 180, 40));
+        Maze5_walls.add(new Rectangle(width/2 + 120, height - 340, 180, 40));
+        Maze5_walls.add(new Rectangle(width/2 + 150, height - 370, 180, 40));
+        Maze5_walls.add(new Rectangle(width/2 + 180, height - 400, 180, 40));
         Maze5_walls.add(new Rectangle(width/2 - 180, height - 140, 180, 10));
-        Maze5_walls.add(new Rectangle(width/2 - 140, height - 160, 10, 30));
-        Maze5_walls.add(new Rectangle(width/2 - 100, height - 160, 10, 30));
+        Maze5_walls.add(new Rectangle(width/2 - 140, height - 160, 10, 40));
+        Maze5_walls.add(new Rectangle(width/2 - 100, height - 160, 10, 40));
         Maze5_walls.add(new Rectangle(0, height - 230, 200, 10));
-        Maze5_walls.add(new Rectangle(190, height- 220, 10, 30));
+        Maze5_walls.add(new Rectangle(190, height- 220, 10, 40));
         Maze5_walls.add(new Rectangle(width/2 - 70, height - 420, 40, 10));
         Maze5_walls.add(new Rectangle(width/2 - 170, height - 450, 40, 10));
         Maze5_walls.add(new Rectangle(0, height - 470, 50, 10));

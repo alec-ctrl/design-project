@@ -22,12 +22,13 @@ public class EndGraphic extends BorderPane{
 
         this.setCenter(buttonbox);
 
-        //buttonbox
+        // Making a new 'restart' button
+        //If clicked will call GameGUI on level 1
         Button start = new Button("Restart");
         start.setMinSize(150, 40);
         Label risk_level = new Label("Your risk level is: " + Risk_rating + " / 5");
         risk_level.setMinSize(150, 40);
-
+        //Making sure everything is centered
         Pane spacerVertical = new Pane();
         spacerVertical.setMinSize(1, 10);
         Pane spacerVertical2 = new Pane();
@@ -40,6 +41,9 @@ public class EndGraphic extends BorderPane{
 
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
+            /**
+             * If you click the start button, calling a new GameGUI on level 1
+             */
             public void handle(ActionEvent actionEvent) {
                 Scene s = null;
 
@@ -47,6 +51,7 @@ public class EndGraphic extends BorderPane{
                 s = new Scene(g, 500, 500);
                 ((Stage) getScene().getWindow()).setScene(s);
                 g.pause(false);
+                //Turning a listener on for keys
                 s.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
                     @Override
                     public void handle(KeyEvent keyEvent) {
