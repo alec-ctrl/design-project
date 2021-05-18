@@ -364,6 +364,25 @@ public class Maze {
         gc.fillRect(250,300,10,200);
     }
 
+    public void shut_middle(int maze_num){
+        if (maze_num == 1) {
+            Maze1_walls.add(new Rectangle(250,300,10,200));
+        }
+        if(maze_num == 2){
+            Maze2_walls.add(new Rectangle(250,300,10,200));
+        }
+        if(maze_num == 3){
+            Maze3_walls.add(new Rectangle(250,300,10,200));
+        }
+        if(maze_num == 4){
+            Maze4_walls.add(new Rectangle(250,300,10,200));
+        }
+        if(maze_num == 5){
+            Maze5_walls.add(new Rectangle(250,300,10,200));
+        }
+    }
+
+
     /**
      * Going through current maze's arraylist and checking for collisions
      * If there is one, dealing with it appropriately
