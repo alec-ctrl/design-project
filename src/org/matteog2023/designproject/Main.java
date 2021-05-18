@@ -9,7 +9,11 @@ public class Main extends Application {
     static Stage stage;
 
 
-
+    /**
+     * Calling StartGraphic
+     * @param primaryStage the stage you are seeing
+     * @throws Exception in case it throws an exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -32,6 +36,10 @@ public class Main extends Application {
 
     }
 
+    /**
+     * The method from which we are launching everything
+     * @param args stuff
+     */
     public static void main(String[] args) {
 
         launch(args);
