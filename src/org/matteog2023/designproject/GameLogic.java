@@ -75,7 +75,7 @@ public class GameLogic {
         Same_level = same_level;
         risk_num = risk1_num;
         lives = life_left;
-        gameGUi =gameGUI;
+        gameGUi = gameGUI;
         coin_num = coin_nums;
         Maze_num = maze_num;
         gameTimer = new GameTimer();
@@ -293,9 +293,141 @@ public class GameLogic {
         player.y = 450;
         if(maze_num == 4){
             maze.save_Maze4(width,height);
+            Goal1.x = width/2 - 30;
+            Goal1.y = 130;
+            Goal2.x = width - 50;
+            Goal2.y = 60;
+            bats = new ArrayList<>();
+            Bat bat1 = new Bat();
+            bat1.y = height/2 + 15;
+            bat1.x = 20;
+            bat1.base_x = 20;
+            bat1.base_height = bat1.y;
+            bats.add(bat1);
+            Bat bat2 = new Bat();
+            bat2.y = height - 80;
+            bat2.x = width/2 + 50;
+            bat2.base_x = 310;
+            bat2.base_height = bat2.y;
+            bats.add(bat2);
+            Bat bat3 = new Bat();
+            bat3.y = 140;
+            bat3.x = width/2 + 40;
+            bat3.base_x = 300;
+            bat3.base_height = bat3.y;
+            bats.add(bat3);
+            for(int i = 0; i < 2; i++) {
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = width / 2 + 40 + 20 * i;
+                blob.y = height / 2 - 100;
+                blobs.add(blob);
+                Coins coin = new Coins();
+                coin.setWidth(10);
+                coin.x = 430 + 20 * i;
+                coin.y = height / 2 + 50;
+                coins.add(coin);
+                Coins coin1 = new Coins();
+                coin1.setWidth(10);
+                coin1.x = 300 + 20 * i;
+                coin1.y = height / 2 - 40;
+                coins.add(coin1);
+                Coins coin2 = new Coins();
+                coin2.setWidth(10);
+                coin2.x = 50 + 20 * i;
+                coin2.y = 125;
+                coins.add(coin2);
+            }
+                for(int i = 0; i < 4; i++) {
+
+                Coins coin3 = new Coins();
+                coin3.setWidth(10);
+                coin3.x = 150 + 20 * i;
+                coin3.y = 400;
+                coins.add(coin3);
+                }
+
+
         }
         if(maze_num == 5){
             maze.save_Maze5(width,height);
+            Goal1.x = 10;
+            Goal1.y = 5;
+            Goal2.x = width - 30;
+            Goal2.y = 30;
+
+//            spikes = new ArrayList<>();
+//            Spikes spikes1 = new Spikes();
+//            spikes1.setHeight(20);
+//            spikes1.x = 400;
+//            spikes1.y = 400;
+//            spikes.add(spikes1);
+
+            bats = new ArrayList<>();
+            Bat bat1 = new Bat();
+            bat1.y = 90;
+            bat1.x = 50;
+            bat1.base_x = 50;
+            bat1.base_height = bat1.y;
+            bats.add(bat1);
+            Bat bat2 = new Bat();
+            bat2.y = height - 110;
+            bat2.x = width/2 + 10;
+            bat2.base_x = 270;
+            bat2.base_height = bat2.y;
+            bats.add(bat2);
+            Bat bat3 = new Bat();
+            bat3.y = 140;
+            bat3.x = width/2 + 60;
+            bat3.base_x = 320;
+            bat3.base_height = bat3.y;
+            bats.add(bat3);
+            Bat bat4 = new Bat();
+            bat4.y = 40;
+            bat4.x = 90;
+            bat4.base_x = 90;
+            bat4.base_height = bat4.y;
+            bats.add(bat4);
+            Bat bat5 = new Bat();
+            bat5.y = 405;
+            bat5.x = 45;
+            bat5.base_x = 45;
+            bat5.base_height = bat5.y;
+            bats.add(bat5);
+            Bat bat6 = new Bat();
+            bat6.y = height - 220;
+            bat6.x = 310;
+            bat6.base_x = 310;
+            bat6.base_height = bat6.y;
+            bats.add(bat6);
+            for(int i = 0; i < 4; i++) {
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = width - 80 + 20 * i;
+                blob.y = height - 40;
+                blobs.add(blob);
+                Coins coin = new Coins();
+                coin.setWidth(10);
+                coin.x = width/2 - 100 + 20 * i;
+                coin.y = height - 125;
+                coins.add(coin);
+                Coins coin1 = new Coins();
+                coin1.setWidth(10);
+                coin1.x = width/2 + 50 + 20 * i;
+                coin1.y = height - 175;
+                coins.add(coin1);
+
+            }
+            for(int i = 0; i < 2; i++) {
+                Enemy_Blob blob = new Enemy_Blob();
+                blob.setWidth(10);
+                blob.setColor(Color.RED);
+                blob.x = width/2 - 140 + 20 * i;
+                blob.y = height/2 + 60;
+                blobs.add(blob);
+            }
         }
     }
 
@@ -340,11 +472,23 @@ public class GameLogic {
                 bat.render(canvas);
             }
         }
-        if(Maze_num == 4){
+        if(Maze_num == 4) {
             maze.render_Maze4(canvas);
+            for(Bat bat : bats){
+                bat.render(canvas);
+            }
+            for(Spikes spike : spikes){
+                spike.render(canvas, image2);
+            }
         }
         if(Maze_num == 5){
             maze.render_Maze5(canvas);
+            for(Bat bat : bats) {
+                bat.render(canvas);
+            }
+            for(Spikes spike : spikes){
+                spike.render(canvas, image2);
+            }
         }
         if((player.x > 270 || player.x < 230) && !shut_middle){
             maze.save_shut_middle(Maze_num);
@@ -633,7 +777,7 @@ public class GameLogic {
                 onScreen(player);
 
                 player.falling();
-                if (Maze_num == 2 || Maze_num == 3){
+                if (Maze_num == 2 || Maze_num == 3 || Maze_num == 4 || Maze_num == 5){
                     for(Bat bat : bats){
                         bat.swoop();
                         collideBlob(bat, bats);
