@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class StartGraphic extends BorderPane {
 
     /**
-     * Creating a start button, a shop button, and a how to play button
+     * Creating a start button and a how to play button
      */
     StartGraphic(){
         VBox buttonbox = new VBox();
@@ -24,8 +24,6 @@ public class StartGraphic extends BorderPane {
         //buttonbox
         Button start = new Button("Start");
         start.setMinSize(150, 40);
-        Button shop = new Button("Shop");
-        shop.setMinSize(150, 40);
         Button howtoplay = new Button("How To Play");
         howtoplay.setMinSize(150, 40);
 
@@ -34,7 +32,7 @@ public class StartGraphic extends BorderPane {
         Pane spacerVertical2 = new Pane();
         spacerVertical2.setMinSize(1,10);
 
-        buttonbox.getChildren().addAll(start, spacerVertical, shop, spacerVertical2, howtoplay);
+        buttonbox.getChildren().addAll(start, spacerVertical, spacerVertical2, howtoplay);
         buttonbox.setAlignment(Pos.CENTER);
         buttonbox.setPadding(new Insets(10,10,10,10));
 

@@ -71,12 +71,10 @@ public class Maze {
         gc.fillRect(width/2 + 70,height/2 - 140, 30,10);
         gc.fillRect(width/2 + 160,height/2 - 100, 30,10);
         gc.fillRect(width/2 + 200,height/2 - 50, 30,10);
-
         gc.fillRect(30, height - 200, width / 2 - 90, 10);
         gc.fillRect(125,height - 150, 30,10);
         gc.fillRect(185,height - 150, 30,10);
-
-        gc.fillRect(130,height /2, 20,10);
+        gc.fillRect(130,height /2, 30,10);
         gc.fillRect(80,height /2 - 60, 30,10);
         gc.fillRect(150,height /2 - 50, 30,10);
         gc.fillRect(30,height /2 - 110, 30,10);
@@ -237,6 +235,7 @@ public class Maze {
         Maze2_walls.add(new Rectangle(100,height /2 - 150, 30,10));
         Maze2_walls.add(new Rectangle(150,height /2 - 200, 40,10));
         Maze2_walls.add(new Rectangle(0,height /2 - 30, 40,10));
+
     }
     /**
      * saving maze 3 into an arraylist
