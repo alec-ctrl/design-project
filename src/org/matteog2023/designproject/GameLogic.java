@@ -40,7 +40,10 @@ public class GameLogic {
     private goal Goal2 = new goal();
     //The goal image
     private Image image = new Image("https://cdn2.iconfinder.com/data/icons/symbol-gray-set-3a/100/1-15-512.png");
-    private Image image2 = new Image("https://lh3.googleusercontent.com/proxy/XDadRJALZGjdOOz7M-AEb3_DYDDbMvosGZ272nx5jIybeyEqrr-MoQop5SEGvyAxknjDF5sOQrhLtyyRAD5iyqgk0mHIjoRZ");
+    //spikes
+    private Image image2 = new Image("http://piskel-resizer.appspot.com/resize?size=200&url=http%3A%2F%2Fwww.piskelapp.com%2Fimg%2Faf5ae09e-7f4e-11e6-ac94-3be9fd4c96e3.png");
+    //Flipped over spikes
+    private Image image3 = new Image("https://mpng.subpng.com/20190621/vvr/kisspng-2-18-mini-cooper-image-drawing-sprite-pixel-pixilart-backside2-by-zak123-5d0da0b377c724.8345581615611741954906.jpg");
     //Having this gameGUI here so I can pause it when I switch scenes
     private GameGUI gameGUi;
     //Counts up for each maze depending on if you took the riskier path
@@ -357,12 +360,15 @@ public class GameLogic {
             Goal2.x = width - 30;
             Goal2.y = 30;
 
-//            spikes = new ArrayList<>();
-//            Spikes spikes1 = new Spikes();
-//            spikes1.setHeight(20);
-//            spikes1.x = 400;
-//            spikes1.y = 400;
-//            spikes.add(spikes1);
+            Spikes spikes1 = new Spikes();
+            spikes1.x = 390;
+            spikes1.y = 290;
+            spikes.add(spikes1);
+            Spikes spikes2 = new Spikes();
+            spikes2.x = 310;
+            spikes2.y = 225;
+            spikes2.flipped = true;
+            spikes.add(spikes2);
 
             bats = new ArrayList<>();
             Bat bat1 = new Bat();
@@ -477,17 +483,11 @@ public class GameLogic {
             for(Bat bat : bats){
                 bat.render(canvas);
             }
-            for(Spikes spike : spikes){
-                spike.render(canvas, image2);
-            }
         }
         if(Maze_num == 5){
             maze.render_Maze5(canvas);
             for(Bat bat : bats) {
                 bat.render(canvas);
-            }
-            for(Spikes spike : spikes){
-                spike.render(canvas, image2);
             }
         }
         if((player.x > 270 || player.x < 230) && !shut_middle){
@@ -501,8 +501,16 @@ public class GameLogic {
         if(shut_middle){
             maze.render_middle(canvas);
         }
+
         for(Spikes spike : spikes){
-            spike.render(canvas, image2);
+            //If the spike is upside down, displaying a different image
+            if(spike.flipped){
+                spike.render(canvas, image3);
+            }
+            else{
+                spike.render(canvas, image2);
+            }
+
         }
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
@@ -591,38 +599,42 @@ public class GameLogic {
 
             //Using i here so I can detect more precise lengths while still detecting larger lengths
             for (int i = (int) player.getWidth(); i > 0; i--) {
-                if (player.y + i< blob.y + blob.getWidth() &&
+                double width_blob = blob.getWidth();
+                double height_blob = blob.getHeight();
+                double player_width = player.getWidth();
+                if (player.y + i < blob.y + height_blob &&
                         //below top
                         player.y + i > blob.y &&
                         //left of right side
-                        player.x + player.getWidth() < blob.x + blob.getWidth() &&
+                        player.x + player_width < blob.x + width_blob &&
                         //right of left side
-                        player.x + player.getWidth() > blob.x &&
-                        player.y + player.getWidth() - i < blob.y + blob.getWidth() &&
+                        player.x + player_width > blob.x &&
+                        player.y + player_width - i < blob.y + height_blob &&
                         //below top
-                        player.y + player.getWidth() - i > blob.y)
-                //left of right side
+                        player.y + player_width - i > blob.y)
+                        //left of right side
                 {
                     if(!hit){
                         if (blob.remove_blob()) {
                             arrayList.remove(blob);
                         }
+
                         lives -= blob.Damage();
                         hit=true;
                         blob.move_player(player);
                     }
                 }
                 //top
-                if (player.y + i < blob.y + blob.getWidth() &&
+                if (player.y + i < blob.y + height_blob &&
                         //below top
                         player.y + i > blob.y &&
                         //left of right side
-                        player.x < blob.x + blob.getWidth() &&
+                        player.x < blob.x + width_blob &&
                         //right of left side
                         player.x > blob.x &&
-                        player.y + player.getWidth() - i < blob.y + blob.getWidth() &&
+                        player.y + player_width - i < blob.y + height_blob &&
                         //below top
-                        player.y + player.getWidth() - i > blob.y
+                        player.y + player_width - i > blob.y
                     //left of right side
 
                 ) {
@@ -637,16 +649,16 @@ public class GameLogic {
 
                 }
                 //bottom
-                if (player.x + i < blob.x + blob.getWidth() &&
+                if (player.x + i < blob.x + width_blob &&
                         //below top
                         player.x + i > blob.x &&
                         //left of right side
-                        player.y + player.getWidth() < blob.y + blob.getWidth() &&
+                        player.y + player_width < blob.y + height_blob &&
                         //right of left side
-                        player.y + player.getWidth() > blob.y &&
-                        player.x + player.getWidth() < blob.x + blob.getWidth() &&
+                        player.y + player_width > blob.y &&
+                        player.x + player_width < blob.x + width_blob &&
                         //below top
-                        player.x + player.getWidth() > blob.x)
+                        player.x + player_width > blob.x)
                 //left of right side
                 {
                     if(!hit){
@@ -659,16 +671,16 @@ public class GameLogic {
                     }
                 }
                 //top
-                if (player.x + i < blob.x + blob.getWidth() &&
+                if (player.x + i < blob.x + width_blob &&
                         //below top
                         player.x + i > blob.x &&
                         //left of right side
-                        player.y < blob.y + blob.getWidth() &&
+                        player.y < blob.y + height_blob &&
                         //right of left side
                         player.y > blob.y &&
-                        player.x + player.getWidth() < blob.x + blob.getWidth() &&
+                        player.x + player_width < blob.x + width_blob &&
                         //below top
-                        player.x + player.getWidth() > blob.x
+                        player.x + player_width > blob.x
                     //left of right side
 
                 ) {

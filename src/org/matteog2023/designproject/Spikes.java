@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 
 public class Spikes extends Enemy_Blob{
     private double height;
+    //If the spiked is flipped upside down
+    public boolean flipped;
 
 
     /**
@@ -28,6 +30,15 @@ public class Spikes extends Enemy_Blob{
         }
         return rtn;
     }
+    /**
+     * Get the current height of this object
+     * returning heihgt because the player is a rectangle
+     * @return a positive width
+     */
+    public double getHeight(){
+        return this.height;
+    }
+
 
     /**
      * @return false if this blob will not be removed after it collides with the player, true if it will

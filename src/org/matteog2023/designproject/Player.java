@@ -60,6 +60,14 @@ public class Player {
     public double getWidth(){
         return this.width;
     }
+    /**
+     * Get the current height of this object
+     * returning width because the player is a square
+     * @return a positive width
+     */
+    public double getHeight(){
+        return this.width;
+    }
 
     /**
      * Sets the color of the ball
@@ -212,6 +220,11 @@ public class Player {
         this.velX *= -1;
     }
 
+
+    /**
+     * rendering everything
+     * @param canvas what you are drawing on
+     */
     public void render( Canvas canvas ){
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
