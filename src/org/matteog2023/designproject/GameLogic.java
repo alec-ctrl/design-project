@@ -369,6 +369,22 @@ public class GameLogic {
             spikes2.y = 225;
             spikes2.flipped = true;
             spikes.add(spikes2);
+            Spikes spikes3 = new Spikes();
+            spikes3.x = 30;
+            spikes3.y = 450;
+            spikes3.setWidth(140);
+            spikes.add(spikes3);
+            Spikes spikes4 = new Spikes();
+            spikes4.x = 30;
+            spikes4.y = 250;
+            spikes4.setWidth(150);
+            spikes.add(spikes4);
+            Spikes spikes5 = new Spikes();
+            spikes5.x = 160;
+            spikes5.y = 340;
+            spikes5.setWidth(35);
+            spikes.add(spikes5);
+
 
             bats = new ArrayList<>();
             Bat bat1 = new Bat();
