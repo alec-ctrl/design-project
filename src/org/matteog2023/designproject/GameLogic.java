@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
+import java.security.SecurityPermission;
 import java.util.ArrayList;
 
 public class GameLogic {
@@ -319,6 +320,75 @@ public class GameLogic {
             bat3.base_x = 300;
             bat3.base_height = bat3.y;
             bats.add(bat3);
+
+            Spikes spikes1 = new Spikes();
+            spikes1.x = 150;
+            spikes1.y = height - 50;
+            spikes.add(spikes1);
+            Spikes spikes2 = new Spikes();
+            spikes2.x = 150;
+            spikes2.y = height - 180;
+            spikes2.flipped = true;
+            spikes.add(spikes2);
+            Spikes spikes3 = new Spikes();
+            spikes3.x = 320;
+            spikes3.y = height - 50;
+            spikes.add(spikes3);
+            Spikes spikes4 = new Spikes();
+            spikes4.x = 280;
+            spikes4.y = height - 180;
+            spikes4.flipped = true;
+            spikes.add(spikes4);
+            Spikes spikes5 = new Spikes();
+            spikes5.x = 340;
+            spikes5.y = height - 180;
+            spikes5.flipped = true;
+            spikes.add(spikes5);
+            Spikes spikes6 = new Spikes();
+            spikes6.x = width - 40;
+            spikes6.y = height - 180;
+            spikes6.flipped = true;
+            spikes.add(spikes6);
+            Spikes spikes7 = new Spikes();
+            spikes7.x = width - 85;
+            spikes7.y = height - 280;
+            spikes7.flipped = true;
+            spikes.add(spikes7);
+            Spikes spikes8 = new Spikes();
+            spikes8.x = width - 150;
+            spikes8.y = height - 320;
+            spikes8.setWidth(150);
+            spikes.add(spikes8);
+            Spikes spikes9 = new Spikes();
+            spikes9.x = width - 170;
+            spikes9.y = 30;
+            spikes9.flipped = true;
+            spikes9.setWidth(120);
+            spikes.add(spikes9);
+            Spikes spikes10 = new Spikes();
+            spikes10.x = 100;
+            spikes10.y = 280;
+            spikes10.setWidth(150);
+            spikes.add(spikes10);
+            Spikes spikes11 = new Spikes();
+            spikes11.x = 90;
+            spikes11.y = 30;
+            spikes11.flipped = true;
+            spikes.add(spikes11);
+            Spikes spikes12 = new Spikes();
+            spikes12.x = 0;
+            spikes12.y = 30;
+            spikes12.setWidth(40);
+            spikes12.flipped = true;
+            spikes.add(spikes12);
+            Spikes spikes13 = new Spikes();
+            spikes13.x = width - 80;
+            spikes13.y = height- 20;
+            spikes13.setWidth(80);
+            spikes.add(spikes13);
+
+
+
             for(int i = 0; i < 2; i++) {
                 Enemy_Blob blob = new Enemy_Blob();
                 blob.setWidth(10);
@@ -384,6 +454,15 @@ public class GameLogic {
             spikes5.y = 340;
             spikes5.setWidth(35);
             spikes.add(spikes5);
+            Spikes spikes6 = new Spikes();
+            spikes6.x = width - 70;
+            spikes6.y = height - 120;
+            spikes.add(spikes6);
+            Spikes spikes7 = new Spikes();
+            spikes7.x = width - 120;
+            spikes7.y = height - 180;
+            spikes7.flipped = true;
+            spikes.add(spikes7);
 
 
             bats = new ArrayList<>();
