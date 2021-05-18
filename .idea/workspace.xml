@@ -20,21 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Merge Alec's code">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Shop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Spikes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Bat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Bat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Directions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/EndGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/EndGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Enemy_Blob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Enemy_Blob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/StartGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/StartGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/goal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-project/org/matteog2023/designproject/GameLogic$GameTimer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-project/org/matteog2023/designproject/GameLogic$GameTimer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-project/org/matteog2023/designproject/GameLogic$GameTimer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-project/org/matteog2023/designproject/GameLogic$GameTimer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-project/org/matteog2023/designproject/GameLogic$GameTimer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-project/org/matteog2023/designproject/GameLogic$GameTimer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-project/org/matteog2023/designproject/GameLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-project/org/matteog2023/designproject/GameLogic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
