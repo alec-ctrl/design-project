@@ -3,6 +3,7 @@ package org.matteog2023.designproject;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -30,9 +31,10 @@ public class GameGUI extends BorderPane {
         gameArea.heightProperty().bind(this.heightProperty());
         gameArea.widthProperty().bind(this.widthProperty());
         Button shop = new Button("Shop");
+        shop.setPadding(new Insets(-20));
         shop.setMinSize(100, 20);
-        shop.setLayoutX(390);
-        shop.setLayoutY(470);
+        shop.setLayoutX(180);
+        shop.setLayoutY(475);
         //to prevent the space bar from firing this button instead of changing the gravity
         shop.setFocusTraversable(false);
 
