@@ -7,18 +7,24 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class GameGUI extends BorderPane {
     private Canvas gameArea;
     private AnimationTimer animTimer;
     private GameLogic logic;
 
+    /**
+     * All these parameters so I can save values from gameLogic to gameLogic, even when I switch mazes
+     * @param maze_num What Maze you are on
+     * @param lives The number of lives you have
+     * @param coin_num the number of coins you have
+     * @param risk_num what your 'risk level' is
+     * @param same_level Whether you are switching back to the 'same level;' like if you entered in the shop
+     */
     public GameGUI(int maze_num, int lives, int coin_num, int risk_num, boolean same_level){
         gameArea = new Canvas();
         gameArea.heightProperty().bind(this.heightProperty());
@@ -104,6 +110,10 @@ public class GameGUI extends BorderPane {
             logic.render(gameArea);
         }
     }
+
+    /**
+     * @param setAnimPause if true pausing the animTimer, if false, not pausing it
+     */
     public void pause(boolean setAnimPause) {
         if (setAnimPause) {
             animTimer.stop();

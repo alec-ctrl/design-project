@@ -20,19 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Merge Alec's code">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Design Project/Enemy_Blob.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Design Project/GameGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Design Project/GameLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Design Project/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Design Project/Maze.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Design Project/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Design Project/StartGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Design Project/module-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/design-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/design-project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Bat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Bat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Coins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Coins.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Directions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/EndGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/EndGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/GameGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/matteog2023/designproject/Spikes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/matteog2023/designproject/Spikes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +128,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/org/matteog2023/designproject" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -265,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621024930882</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="hi">
+      <created>1621346024286</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621346024287</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -276,7 +282,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -291,74 +303,12 @@
     <MESSAGE value="Merge Alec's code" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge Alec's code" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="447" y="242" key="#Notifications" timestamp="1621022687531">
-      <screen x="0" y="23" width="1440" height="822" />
-    </state>
-    <state x="447" y="242" key="#Notifications/0.23.1440.822@0.23.1440.822" timestamp="1621022687531" />
-    <state x="181" y="73" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621288924401">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state x="181" y="73" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.816@0.23.1440.816" timestamp="1621288924401" />
-    <state x="454" y="232" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1621288915617">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state x="454" y="232" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1440.816@0.23.1440.816" timestamp="1621288915617" />
-    <state width="1358" height="197" key="GridCell.Tab.0.bottom" timestamp="1621288979804">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state width="1358" height="197" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1621288979804" />
-    <state width="1358" height="197" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1621024497432" />
-    <state width="1358" height="197" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1621024087759" />
-    <state width="1358" height="197" key="GridCell.Tab.0.center" timestamp="1621288979803">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state width="1358" height="197" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1621288979803" />
-    <state width="1358" height="197" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1621024497431" />
-    <state width="1358" height="197" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1621024087758" />
-    <state width="1358" height="197" key="GridCell.Tab.0.left" timestamp="1621288979802">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state width="1358" height="197" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1621288979802" />
-    <state width="1358" height="197" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1621024497430" />
-    <state width="1358" height="197" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1621024087758" />
-    <state width="1358" height="197" key="GridCell.Tab.0.right" timestamp="1621288979804">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state width="1358" height="197" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1621288979804" />
-    <state width="1358" height="197" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1621024497431" />
-    <state width="1358" height="197" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1621024087759" />
-    <state x="305" y="161" key="IDE.errors.dialog" timestamp="1621228130787">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state x="305" y="161" key="IDE.errors.dialog/0.23.1440.816@0.23.1440.816" timestamp="1621228130787" />
-    <state x="357" y="179" key="MultipleFileMergeDialog" timestamp="1620766036008">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state x="357" y="179" key="MultipleFileMergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1620766036008" />
-    <state x="205" y="23" width="1024" height="816" key="SettingsEditor" timestamp="1621288882873">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state x="205" y="23" width="1024" height="816" key="SettingsEditor/0.23.1440.816@0.23.1440.816" timestamp="1621288882873" />
-    <state x="205" y="23" width="1024" height="821" key="SettingsEditor/0.23.1440.821@0.23.1440.821" timestamp="1621024658358" />
-    <state x="317" y="152" key="Vcs.Push.Dialog.v2" timestamp="1621023829854">
-      <screen x="0" y="23" width="1440" height="822" />
-    </state>
-    <state x="317" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1620766051850" />
-    <state x="317" y="152" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1621022446248" />
-    <state x="317" y="152" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1621023829854" />
-    <state x="518" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621024673629">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state x="518" y="332" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1620762362195" />
-    <state x="518" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.821@0.23.1440.821" timestamp="1621024673629" />
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/design_project$Main__1_.ic" NAME="Main (1) Coverage Results" MODIFIED="1621228146593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>org.matteog2023.designproject.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/design_project$Main.ic" NAME="Main Coverage Results" MODIFIED="1621227796111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>sample.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/design_project$Main__1_.ic" NAME="Main (1) Coverage Results" MODIFIED="1621228146593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.matteog2023.designproject.*</FILTER>
     </SUITE>
   </component>
 </project>

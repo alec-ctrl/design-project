@@ -8,6 +8,9 @@ public class Spikes extends Enemy_Blob{
     private double height;
 
 
+    /**
+     * Creating a spikes with width 60 and height 20
+     */
     Spikes(){
         this.setWidth(60);
         this.setHeight(20);
@@ -25,13 +28,18 @@ public class Spikes extends Enemy_Blob{
         }
         return rtn;
     }
+
+    /**
+     * @return false if this blob will not be removed after it collides with the player, true if it will
+     * be removed
+     */
     @Override
     public boolean remove_blob() {
         return false;
     }
 
     /**
-     *
+     * Moving the player just to the left of the spikes
      */
     public void move_player(Player player){
         player.x = this.x - player.getWidth();

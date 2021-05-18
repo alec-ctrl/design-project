@@ -12,7 +12,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 public class Shop extends BorderPane {
+    //One heart
     private ImageView image = new ImageView("https://st2.depositphotos.com/2743147/9292/i/600/depositphotos_92920470-stock-photo-heart-isolated-on-white-and.jpg");
+    //Three images
     private ImageView image2 = new ImageView("https://media.istockphoto.com/photos/red-hearts-isolated-on-white-background-picture-id531760105?k=6&m=531760105&s=612x612&w=0&h=DQdiam1L0x7s1OtNR2BVRnHd3dafPzh85th2_NNPm5w=");
     private Label lives_label;
     private Label coins_label;

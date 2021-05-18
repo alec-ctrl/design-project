@@ -13,7 +13,10 @@ import javafx.stage.Stage;
 
 public class EndGraphic extends BorderPane{
 
-
+    /**
+     * A simple ending screen, with your 'Risk_rating' and a button to go back to the start screen
+     * @param Risk_rating How many times you chose the 'riskier' side
+     */
     EndGraphic(String Risk_rating) {
         VBox buttonbox = new VBox();
 

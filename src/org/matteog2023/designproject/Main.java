@@ -1,11 +1,8 @@
 package org.matteog2023.designproject;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import javafx.animation.AnimationTimer;
 
 public class Main extends Application {
 
@@ -22,9 +19,13 @@ public class Main extends Application {
 
         primaryStage.setScene(new Scene(root, 500, 500));
         stage.show();
-        primaryStage.setTitle("Templer");
+        primaryStage.setTitle("Gravity Dude");
     }
 
+    /**
+     * to switch the scene
+     * @param scene the scene you are switching to
+     */
     public static void switchscene(Scene scene) {
         stage.setScene(scene);
         stage.show();

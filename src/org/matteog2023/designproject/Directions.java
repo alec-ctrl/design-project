@@ -2,17 +2,11 @@ package org.matteog2023.designproject;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-
-
-
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Directions extends BorderPane {
@@ -44,10 +38,10 @@ public class Directions extends BorderPane {
         how_to_play.setLayoutY(100);
         back.setLayoutX(400);
         back.setLayoutY(400);
-
         back.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent actionEvent) {
+                //If you press 'Back,' going to the StartGraphic screen again
                 Scene s = null;
 
                 StartGraphic d = new StartGraphic();

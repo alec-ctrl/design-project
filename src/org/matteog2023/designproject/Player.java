@@ -18,11 +18,8 @@ public class Player {
     //So I can tell if the ball is on the ceiling and set jump to false
     public boolean on_ceiling;
 
-
-
-    private double[] boundX, boundY;
     /**
-     * Creates a rectangle with a wdith of one
+     * Creates a rectangle with a width of one
      */
     public Player(){
         this(1);
@@ -40,8 +37,6 @@ public class Player {
         }
         this.width = width;
 
-        boundX = new double[2];
-        boundY = new double[2];
     }
 
     /**
